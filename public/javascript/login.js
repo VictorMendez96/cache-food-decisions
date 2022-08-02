@@ -21,6 +21,7 @@ const loginForm = async (event) => {
         } else {
             errorMessage.style.display = "block";
         }
+        console.log("message");
     }
 };
 
