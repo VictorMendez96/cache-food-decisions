@@ -1,4 +1,4 @@
-const login = async (event) => {
+const loginForm = async (event) => {
     //stop the browser from submitting the form immediately so we can add in the api response
     event.preventDefault();
 
@@ -24,18 +24,17 @@ const login = async (event) => {
     }
 };
 
-document.querySelector(".login-form").addEventListener("submit", login);
 
 
 // sign up with us
 const signupForm = async(event) => {
     event.preventDefault();
-
+    
     //collect data from the form
     const userName = document.querySelector("#name-signup").value.trim();
     const email = document.querySelector("#email-signup").value.trim();
     const password = document.querySelector("#password").value.trim();
-
+    
     if (name && email && password) {
         //send data to the server
         const response = await fetch ("/api/users", {
@@ -43,12 +42,17 @@ const signupForm = async(event) => {
             body: JSON.stringify({ userName, email, password}),
             headers: { "Content-Type": "application/json" },
         });
-
+        
         if (response.ok) {
             document.location.replace("/api/users");       
         } else {
             alert(response.statusText);
         }
     }
+    
+};
 
-}
+document.querySelector(".login-form").addEventListener("submit", loginForm);
+
+document.querySelector(".signup-form").addEventListener("submit", signupForm);
+
