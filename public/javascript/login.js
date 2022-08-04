@@ -6,20 +6,20 @@ const loginForm = async (event) => {
     const email = document.querySelector("#email-login").value.trim();
     const password = document.querySelector("#password-login").value.trim();
     // const errorMessage = document.querySelector(".error");
-
+    console.log(email, password);
     if (email && password) {
         //send the email and password to the server with a post request
         const response = await fetch ("/api/users/login", {
             method: "POST",
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ email, password }),
             headers: { "Content-Type": "application/json"},
         });
-
+        console.log(response);
         if(response.ok) {
             //then redirect browser to the food choices home page
             document.location.replace("/")
         } else {
-            errorMessage.style.display = "block";
+            alert("Your login was unsuccessful, please try again");
         }
         console.log("message");
     }
@@ -48,8 +48,9 @@ const signupForm = async(event) => {
         if (response.ok) {
             document.location.replace("/api/users");       
         } else {
-            alert(response.statusText);
+            alert("Failed to sign up");
         }
+        console.log(response.statusText);
     }
     
 };
