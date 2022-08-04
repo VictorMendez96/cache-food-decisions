@@ -2,9 +2,11 @@
   "name": "cache-food-decisions",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
     "seed": "node seeds/index.js"
   },
   "repository": {
@@ -14,6 +16,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "2.0.3"
+  },
   "bugs": {
     "url": "https://github.com/VictorMendez96/cache-food-decisions/issues"
   },
