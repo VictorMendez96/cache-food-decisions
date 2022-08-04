@@ -1,1 +1,34 @@
-<h1>Hello World</h1>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Set User Preferences
+</button>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">User Preferences</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h2>Dietary Restrictions</h2>
+        <input class="btn btn-primary" type="button" value="Gluten Free">
+        <input class="btn btn-primary" type="button" value="Dairy Free">
+        <input class="btn btn-primary" type="button" value="Keto">
+        <input class="btn btn-primary" type="button" value="Paleo">
+        <input class="btn btn-primary" type="button" value="Whole 30">
+        <input class="btn btn-primary" type="button" value="Vegan">
+        <input class="btn btn-primary" type="button" value="Vegetarian">
+        <input class="btn btn-primary" type="button" value="Pescatarian">
+        <hr>
+        <h2>Nutrition</h2>
+
+        <hr>
+        <h2>Amounts</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
