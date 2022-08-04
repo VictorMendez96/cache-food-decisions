@@ -1,0 +1,33 @@
+nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: aquamarine;   
+}
+
+nav h1 {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+nav div a {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.signup {
+    margin: 20vh auto;
+    width: 200px;
+    border-radius: 12px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px lightgray;
+    background-color: lightgray;
+}
+
+.signup-h1 {
+    background-color: green;
+    padding: 10px;
+    border-radius: 8px;
+}
