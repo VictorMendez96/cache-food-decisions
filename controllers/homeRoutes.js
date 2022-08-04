@@ -1,22 +1,22 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { User } = require("../models"); //needs userData here
 const withAuth = require("../utils/auth");
 
 //prevents browsers from viewing homepage if not logged in
 router.get("/", withAuth, async (req, res) => {
    try {
-    //find the user by the 
-    const userData = await User.findByPk(req.session.user_id, {
+    //find the user 
+    const userData = await User.findAll({
         attributes: { exclude: ['password'] },
-        // order: [['name', 'ASC']],
+        order: [['name', 'ASC']],
       });
     
       //serialize the data to JSON
-      const user = userData.map((project) => project.get({ plain: true }));
+      const users = userData.map((project) => project.get({ plain: true }));
       // Pass the logged in flag to the template
-      res.render('dashboard', {
-        ...user,
-        logged_in: tru
+      res.render('homepage', {
+        users,
+        logged_in: req.session.logged_in,
       });
    } catch (error) {
     res.status(500).json(error);
@@ -26,15 +26,15 @@ router.get("/", withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
     // if session exists, redirect user to the homepage
-    if(res.session.logged_in) {
-        res.redirect("/dashboard");
+    if(req.session.logged_in) {
+        res.redirect("/");
         return;
     }
     res.render('login')
 });
 
 //create new user
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const dbUserData = await User.create({
           username: req.body.username,
@@ -54,16 +54,16 @@ router.post('/signup', (req, res) => {
     
 });
 
-//logout
-router.post("/logout", (req, res) =>  {
-    if(req.session.logged_in) {
-        req.session.destroy(() => {
-             res.status(204).end();
-             });
-        } else {
-          res.status(404).end();
-        }
-});
+// //logout already on api/userRoutes
+// router.post("/logout", (req, res) =>  {
+//     if(req.session.logged_in) {
+//         req.session.destroy(() => {
+//              res.status(204).end();
+//              });
+//         } else {
+//           res.status(404).end();
+//         }
+// });
    
 
 module.exports = router;
