@@ -16,7 +16,7 @@
 
   <div class="container-fluid">
     <div class="d-flex justify-content-center">
-      {{#if loggedIn}}
+      {{#if logged_in}}
       <a class="navbar-brand justify-content-center" href="/homepage">
         <img src="/images/grocery-bag.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
         Cache Food Decisions
@@ -41,7 +41,7 @@
 
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          {{#if loggedIn}}
+          {{#if logged_in}}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
           </li>
@@ -68,7 +68,7 @@
 
     {{{body}}}
 
-    <script src="javascript/index.js"></script>
+    {{!-- NO SUCH FILE YET <script src="./javascript/index.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
 </html>
