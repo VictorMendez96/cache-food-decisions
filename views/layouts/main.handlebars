@@ -16,10 +16,17 @@
 
   <div class="container-fluid">
     <div class="d-flex justify-content-center">
-      <a class="navbar-brand justify-content-center" href="/">
+      {{#if loggedIn}}
+      <a class="navbar-brand justify-content-center" href="/homepage">
         <img src="/images/grocery-bag.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
         Cache Food Decisions
       </a>
+      {{else}}
+      <a class="navbar-brand justify-content-center" href="/login">
+        <img src="/images/grocery-bag.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        Cache Food Decisions
+      </a>
+      {{/if}}
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -34,16 +41,22 @@
 
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
           {{#if loggedIn}}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
+          </li>
           <li class="nav-item">
             <button id="logout" class="btn-no-style">Logout</button>
           </li>
           {{else}}
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/login">Home</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Sign Up!</a>
           </li>
           {{/if}}
         </ul>
