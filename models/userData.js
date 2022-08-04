@@ -23,7 +23,7 @@ userData.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    cuisine: {
+    cuisines: {
       type: DataTypes.STRING,
       allowNull: true,
     },
