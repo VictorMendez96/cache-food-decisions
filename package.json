@@ -16,6 +16,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "2.0.3"
+  },
   "bugs": {
     "url": "https://github.com/VictorMendez96/cache-food-decisions/issues"
   },
