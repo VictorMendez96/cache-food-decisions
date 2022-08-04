@@ -13,7 +13,6 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
 // Sets up session authentication and connect to our Sequelize db
 // const sess = {
 //   secret: 'Super secret secret',
@@ -46,7 +45,6 @@ const sess = {
   }),
 };
 
-
 app.use(session(sess));
 
 app.engine("handlebars", exphbs.engine());
@@ -60,8 +58,6 @@ app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
- 
     console.log(`Now listening on http://localhost:${PORT}`)
   );
 });
-
