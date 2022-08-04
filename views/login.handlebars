@@ -4,15 +4,20 @@
     </div>
 
     <div class="card-body">
-        <form>
+        <form class="login-form">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
+                {{!-- changed for label to match id --}}
+                <label for="email-login" class="form-label">Email address</label>
+                <input type="email" class="form-control" 
+                {{!-- id needs to be unique--}}
+                id="email-login" aria-describedby="emailHelp" placeholder="name@example.com">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                {{!-- changed for to match id --}}
+                <label for="password-login" class="form-label">Password</label>
+                {{!-- id needs to be unique--}}
+                <input type="password" class="form-control" id="password-login">
             </div>
             <button type="submit" class="btn btn-primary">Log In!</button>
         </form>
@@ -25,20 +30,24 @@
     </div>
 
     <div class="card-body">
-        <form>
+        <form class="signup-form">
             <div class="input-group">
                 <span class="input-group-text">First and last name</span>
                 <input type="text" aria-label="First name" class="form-control">
                 <input type="text" aria-label="Last name" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="name@example.com">
+                <label for="email-signup" class="form-label">Email address</label>
+                <input type="email" class="form-control" 
+                {{!-- id needs to be unique --}}
+                id="email-signup" aria-describedby="emailHelp" placeholder="name@example.com">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" 
+                {{!-- id needs to be unique --}}
+                id="password">
             </div>
             <button type="submit" class="btn btn-primary">Create a New Account</button>
         </form>

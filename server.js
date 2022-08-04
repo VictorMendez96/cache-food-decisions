@@ -3,9 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
-// const helpers = require("./utils/helpers");
-
-// const hbs = exphbs.create({ helpers });
+const helpers = require("./utils/helpers");
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -13,7 +11,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Sets up session authentication and connect to our Sequelize db
+const hbs = exphbs.create({ helpers });
 
 const oneDay = 100 * 60 * 60 * 24;
 const sess = {
@@ -21,15 +19,14 @@ const sess = {
   cookie: { maxAge: oneDay },
   resave: false,
   saveUninitialized: true,
-
   store: new SequelizeStore({
-    db: sequelize,
-  }),
+    db: sequelize
+  })
 };
 
 app.use(session(sess));
 
-app.engine("handlebars", exphbs.engine());
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use(express.json());

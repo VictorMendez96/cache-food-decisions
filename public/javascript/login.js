@@ -5,13 +5,13 @@ const loginForm = async (event) => {
     //collect values from the login form
     const email = document.querySelector("#email-login").value.trim();
     const password = document.querySelector("#password-login").value.trim();
-    const errorMessage = document.querySelector(".error");
+    // const errorMessage = document.querySelector(".error");
 
     if (email && password) {
         //send the email and password to the server with a post request
         const response = await fetch ("/api/users/login", {
             method: "POST",
-            body: JSON.stringify({ userName, password }),
+            body: JSON.stringify({ username, password }),
             headers: { "Content-Type": "application/json"},
         });
 
@@ -32,15 +32,16 @@ const signupForm = async(event) => {
     event.preventDefault();
     
     //collect data from the form
-    const userName = document.querySelector("#name-signup").value.trim();
+    //no id's here yet for first or last name, do we need them?
+    // const name = document.querySelector("name-signup").value.trim();
     const email = document.querySelector("#email-signup").value.trim();
     const password = document.querySelector("#password").value.trim();
     
-    if (name && email && password) {
+    if (email && password) {
         //send data to the server
         const response = await fetch ("/api/users", {
             method: "POST",
-            body: JSON.stringify({ userName, email, password}),
+            body: JSON.stringify({email, password}),
             headers: { "Content-Type": "application/json" },
         });
         

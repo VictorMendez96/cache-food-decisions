@@ -16,11 +16,11 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
+    // username: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   unique: true,
+    // },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -28,14 +28,14 @@ User.init(
         len: [8],
       },
     },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // firstName: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
+    // lastName: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
   },
   {
     hooks: {
