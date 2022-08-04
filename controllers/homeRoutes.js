@@ -4,24 +4,24 @@ const withAuth = require("../utils/auth");
 
 // homepage user must be able to access
 router.get("/", async (req, res) => {
-  //  try {
-  //   //find the user 
-  //   const userData = await User.findAll({
-  //       attributes: { exclude: ['password'] },
-  //       order: [['name', 'ASC']],
-  //     });
+   try {
+    //find the user 
+    const userData = await User.findAll({
+        attributes: { exclude: ['password'] },
+        order: [['lastName', 'ASC']],
+      });
     
-  //     //serialize the data to JSON
-  //     const users = userData.map((user) => user.get({ plain: true }));
-  //     // Pass the logged in flag to the template
-  //     res.render('homepage', {
-  //       users,
-  //       logged_in: req.session.logged_in,
-  //     });
-  //  } catch (error) {
-  //   res.status(500).json(error);
-  //  } 
-    res.render('homepage');
+      //serialize the data to JSON
+      const users = userData.map((user) => user.get({ plain: true }));
+      // Pass the logged in flag to the template
+      res.render('homepage', {
+        users,
+        logged_in: req.session.logged_in,
+      });
+   } catch (error) {
+    res.status(500).json(error);
+   } 
+    
 });
 
 router.get('/login', (req, res) => {
