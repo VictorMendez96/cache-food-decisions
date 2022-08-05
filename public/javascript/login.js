@@ -33,7 +33,8 @@ const signupForm = async(event) => {
     
     //collect data from the form
     //no id's here yet for first or last name, do we need them?
-    // const name = document.querySelector("name-signup").value.trim();
+    const lastName = document.querySelector("#lastName").value.trim();
+    const firstName = document.querySelector("first-name").value.trim();
     const email = document.querySelector("#email-signup").value.trim();
     const password = document.querySelector("#password").value.trim();
     
@@ -41,7 +42,7 @@ const signupForm = async(event) => {
         //send data to the server
         const response = await fetch ("/api/users", {
             method: "POST",
-            body: JSON.stringify({email, password}),
+            body: JSON.stringify({lastName, firstName, email, password}),
             headers: { "Content-Type": "application/json" },
         });
         
