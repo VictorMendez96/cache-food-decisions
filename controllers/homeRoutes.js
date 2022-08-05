@@ -33,6 +33,14 @@ router.get('/login', (req, res) => {
     res.render('login')
 });
 
+router.get("/signup", (req, res) => {
+//   if (req.session.logged_in) {
+//     res.redirect("/");
+//     return;
+//   }
+
+  res.render("signup");
+});
 // //create new user
 // router.post('/signup', async (req, res) => {
 //     try {
@@ -63,6 +71,7 @@ router.get('/login', (req, res) => {
 //         } else {
 //           res.status(404).end();
 //         }
+
 // });
    
 

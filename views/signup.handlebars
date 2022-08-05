@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header">
+    Sign Up
+  </div>
+
+  <div class="card-body">
+    <form class="signup-form">
+      {{! <div class="input-group">
+                <span class="input-group-text">First and last name</span>
+                <input type="text" aria-label="First name" class="form-control">
+                <input type="text" aria-label="Last name" class="form-control">
+            </div> }}
+      <div class="mb-3">
+        <label for="email-signup" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          {{! id needs to be unique }}
+          id="email-signup"
+          aria-describedby="emailHelp"
+          placeholder="name@example.com"
+        />
+        <div id="emailHelp" class="form-text">We'll never share your email with
+          anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          {{! id needs to be unique }}
+          id="password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Create a New Account</button>
+    </form>
+  </div>
+</div>
