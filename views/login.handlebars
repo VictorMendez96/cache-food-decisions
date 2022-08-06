@@ -6,17 +6,13 @@
     <div class="card-body">
         <form class="login-form">
             <div class="mb-3">
-                {{!-- changed for label to match id --}}
                 <label for="email-login" class="form-label">Email address</label>
                 <input type="email" class="form-control" 
-                {{!-- id needs to be unique--}}
                 id="email-login" aria-describedby="emailHelp" placeholder="name@example.com">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
-                {{!-- changed for to match id --}}
                 <label for="password-login" class="form-label">Password</label>
-                {{!-- id needs to be unique--}}
                 <input type="password" class="form-control" id="password-login">
             </div>
             <button type="submit" class="btn btn-primary">Log In!</button>
