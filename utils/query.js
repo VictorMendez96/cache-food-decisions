@@ -1,5 +1,6 @@
 require("dotenv").config();
 const inputToQuery = require("./helpers");
+const parseIngredients = require("./helpers");
 
 const apiKey = process.env.API_KEY;
 
@@ -9,10 +10,8 @@ async function getChoices(user, offset) {
   const user_diet = inputToQuery(user.diet);
   const user_intolerances = inputToQuery(user.intolerances);
   const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${user_cuisines}&diet=${user_diet}&intolerances=${user_intolerances}&offset=${offset}&instructionsRequired=true&apiKey=${apiKey}`;
-
   const response = await fetch(url);
   const data = await response.json();
-
   return data.results;
 }
 
@@ -29,19 +28,17 @@ async function getRecipes(array) {
             servings:'',
             meal:'',
             prepTime:'',
+            totalPrice:'',
         };
         const url = `https://api.spoonacular.com/recipes/${array[element]}/information`;
         const response = await fetch(url);
         const data = await response.json();
-        tempObj[element].id = data.instructions;
-        tempObj[element].instructions = data.instructions;
-        tempObj[element].ingredients = data.in;
-        tempObj[element].servings = data.servings;
-        tempObj[element].meal = data.dishTypes;
+        tempObj[element].id = data[element].id;
+        tempObj[element].instructions = data[element].instructions;
+        tempObj[element].ingredients = parseIngredients(data[element].extendedIngredients);
+        tempObj[element].servings = data[element].servings;
+        tempObj[element].meal = data[element].dishTypes;
+        recipes.push(tempObj);
     });
-  return data.results;
+  return recipes;
 }
-//ingredients
-//https://spoonacular.com/food-api/docs#Ingredients-by-ID
-//price
-//https://spoonacular.com/food-api/docs#Price-Breakdown-by-ID
