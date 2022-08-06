@@ -13,16 +13,16 @@
 
   <body>
 
-  <nav class="navbar justify-content-center fixed-top" style="background-color: #05204A;">
+  <nav class="navbar justify-content-center" id="main-nav">
   <div class="container-fluid" id="navbar">
     <div class="d-flex justify-content-center">
       {{#if logged_in}}
-      <a class="navbar-brand" href="/homepage">
+      <a class="navbar-brand" id="nav-text" href="/homepage">
         <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
         Cache Food Decisions
       </a>
       {{else}}
-      <a class="navbar-brand" href="/login">
+      <a class="navbar-brand" id="nav-text" href="/login">
         <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
         Cache Food Decisions
       </a>
@@ -40,13 +40,13 @@
       </div>
 
       <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="menu-options">
           {{#if logged_in}}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
           </li>
           <li class="nav-item">
-            <button id="logout" class="btn-no-style">Logout</button>
+            <a class="nav-link" href="/logout">Logout</a>
           </li>
           {{else}}
           <li class="nav-item">
