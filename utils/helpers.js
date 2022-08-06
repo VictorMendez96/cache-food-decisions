@@ -20,7 +20,7 @@ function parseIngredients(array) {
     };
     tempIng.name = array[element].name;
     tempIng.id = array[element].id;
-    tempIng.amount = array[element].amount;
+    tempIng.amount = parseInt(array[element].amount);
     tempIng.unit = array[element].unit;
     tempIng.original = array[element].original;
     output.push(tempIng);
@@ -30,18 +30,45 @@ function parseIngredients(array) {
 
 function makeList(recipeArray) {
   let list = [];
+  let metaList = [];
+  let tempIDList = [];
+  //step 1
   recipeArray.forEach((element) => {
-    const temp = {
+    metaList[element] = recipeArray[element].ingredients;
+  });
+  //step 2
+  metaList.forEach((ingList) => {
+    const placeholder = {
       id: "",
       name: "",
       amount: "",
-      original: "",
+      unit: "",
     };
-    tempIng.name = recipeArray[element].name;
-
-    list.push(tempIng);
+    //step 3
+    ingList.forEach((item) => {
+      let id = ingList[item].id;
+      //existing item
+      if (tempIDList.inclues(id)) {
+        let index = tempIDList.indexOf(id);
+        list[index].amount += ingList[item].amount;
+        //assumes same unit
+        //new item
+      } else {
+        placeholder.id = ingList[item].id;
+        placeholder.name = ingList[item].name;
+        placeholder.amount = ingList[item].unit;
+        placeholder.unit = ingList[item].unit;
+        tempIDList.push(placeholder.id);
+        list.push(placeholder);
+      }
+    });
   });
   return list;
 }
 
-module.exports = { inputToQuery, userDataToDisplay, parseIngredients };
+module.exports = {
+  inputToQuery,
+  userDataToDisplay,
+  parseIngredients,
+  makeList,
+};
