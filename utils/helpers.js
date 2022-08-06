@@ -12,12 +12,36 @@ function parseIngredients(array) {
   let output = [];
   array.forEach((element) => {
     const tempIng = {
+      id: "",
       name: "",
       amount: "",
-      originalName: "",
+      unit: "",
+      original: "",
     };
+    tempIng.name = array[element].name;
+    tempIng.id = array[element].id;
+    tempIng.amount = array[element].amount;
+    tempIng.unit = array[element].unit;
+    tempIng.original = array[element].original;
+    output.push(tempIng);
   });
   return output;
 }
 
-module.exports = { inputToQuery, userDataToDisplay };
+function makeList(recipeArray) {
+  let list = [];
+  recipeArray.forEach((element) => {
+    const temp = {
+      id: "",
+      name: "",
+      amount: "",
+      original: "",
+    };
+    tempIng.name = recipeArray[element].name;
+
+    list.push(tempIng);
+  });
+  return list;
+}
+
+module.exports = { inputToQuery, userDataToDisplay, parseIngredients };
