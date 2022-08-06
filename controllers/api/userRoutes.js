@@ -12,8 +12,8 @@ router.post("/signup", async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.email = userData.email;
+      // req.session.user_id = userData.id;
+      // req.session.email = userData.email;
       req.session.logged_in = true;
 
       res.status(200).json({ user: userData, message:"New user created. You are now logged in." });
@@ -46,13 +46,14 @@ router.post("/login", async (req, res) => {
     }
     //creating session variables based on user
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      // req.session.user_id = userData.id;
       // req.session.username = userData.firstName;
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: `${error}` });
   }
 });
