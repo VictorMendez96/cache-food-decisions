@@ -2,38 +2,38 @@
 <html lang="en">
 
   <head>
-    <link rel="stylesheet" href="stylesheets/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/stylesheets/style.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/basket2-fillwhite.svg">
     <title>Cache Food Decisions</title>
   </head>
 
   <body>
 
-  <nav class="navbar justify-content-center bg-light fixed-top">
-
-  <div class="container-fluid">
+  <nav class="navbar justify-content-center fixed-top" style="background-color: #05204A;">
+  <div class="container-fluid" id="navbar">
     <div class="d-flex justify-content-center">
       {{#if logged_in}}
-      <a class="navbar-brand justify-content-center" href="/homepage">
-        <img src="/images/grocery-bag.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      <a class="navbar-brand" href="/homepage">
+        <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
         Cache Food Decisions
       </a>
       {{else}}
-      <a class="navbar-brand justify-content-center" href="/login">
-        <img src="/images/grocery-bag.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      <a class="navbar-brand" href="/login">
+        <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
         Cache Food Decisions
       </a>
       {{/if}}
     </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="background-color: white;">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #BCD3F2;">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -63,7 +63,6 @@
       </div>
     </div>
   </div>
-
   </nav>
 
     {{{body}}}
