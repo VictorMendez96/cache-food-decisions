@@ -1,20 +1,22 @@
 function inputToQuery(array) {
-  let output = [];
-  let lastIndex = array.length - 1;
-  for (let i = 0; i < array.length; i++) {
-    if (i == lastIndex) {
-      let text = `${array[i]}`;
-      output.push(text);
-    } else {
-      let text = `${array[i]}+`;
-      output.push(text);
-    }
-  }
+  array.join("+");
   return output;
 }
 
 function userDataToDisplay(text) {
   const output = text.split("+");
+  return output;
+}
+
+function parseIngredients(array) {
+  let output = [];
+  array.forEach((element) => {
+    const tempIng = {
+      name: "",
+      amount: "",
+      originalName: "",
+    };
+  });
   return output;
 }
 
