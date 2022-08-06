@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     
       //serialize the data
       const users = userData.map((user) => user.get({ plain: true }));
-      // Pass the logged in flag to the template -- MAYBE a different template to make it work? This should go into any handlebars .get we want logged_in users to be able to access with button click of redirect on UI
+      // Pass the logged in flag to the template 
       res.render('homepage', {
         users,
         logged_in: req.session.logged_in,
