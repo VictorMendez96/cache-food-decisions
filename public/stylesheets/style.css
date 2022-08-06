@@ -1,53 +1,29 @@
-.navbar-brand {
-    color: white;
-}
-
-
-/* #navbar {
-    color: white;
-} */
-/* :root{
+:root {
     --primary: #05204A;
     --secondary: #80A4ED;
-    --tertiary: #FFE66D;
-    --quatrinary: #FE5F55;
+    --tertiary: #FE5F55;
+    --quatrinary: #FFE15C;
     --light: #BCD3F2;
-} */
+  }
 
-/* .navbar {
-    background-color: $blue-800;
-} */
-
-/* nav {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    background-color: aquamarine;   
+body {
+    background-image: url("/images/Kitchen-background.jpg");
+    background-size: cover;
 }
 
-nav h1 {
-    background-color: black;
+#main-nav {
+    background-color: var(--primary);
+}
+
+#nav-text {
     color: white;
-    padding: 5px;
-    border-radius: 8px;
+    justify-content: center;
 }
 
-nav div a {
-    text-decoration: none;
-    margin: 10px;
+#menu-options {
+    color: var(--primary);
 }
 
-.signup {
-    margin: 20vh auto;
-    width: 200px;
-    border-radius: 12px;
-    border: 1px solid black;
-    box-shadow: 5px 5px 10px lightgray;
-    background-color: lightgray;
-}
+/* #login-card {
 
-.signup-h1 {
-    background-color: green;
-    padding: 10px;
-    border-radius: 8px;
 } */
