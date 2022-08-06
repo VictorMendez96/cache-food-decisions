@@ -4,8 +4,8 @@ const withAuth = require("../utils/auth");
 
 // user must be able to access the main login page, so can't have withAuth here
 router.get("/", async (req, res) => {
-   try {
-    //find the user based on email 
+  try {
+    //find the user based on email
     const userData = await User.findAll({
         attributes: { exclude: ['password'] },
         // order: [['lastName', 'ASC']],
@@ -20,25 +20,23 @@ router.get("/", async (req, res) => {
       });
    } catch (error) {
     res.status(500).json(error);
-   } 
-    
+  }
 });
 
-router.get('/login', (req, res) => {
-    // if session exists, redirect user to the homepage
-    if(req.session.logged_in) {
-        res.redirect("/");
-        return;
-    }
-    res.render('login')
+router.get("/login", (req, res) => {
+  // if session exists, redirect user to the homepage
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
 });
-
 
 router.get("/signup", (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect("/");
-//     return;
-//   }
+  //   if (req.session.logged_in) {
+  //     res.redirect("/");
+  //     return;
+  //   }
 
   res.render("signup");
 });
@@ -50,17 +48,17 @@ router.get("/signup", (req, res) => {
 //           email: req.body.email,
 //           password: req.body.password,
 //         });
-    
+
 //         req.session.save(() => {
 //           req.session.logged_in = true;
-    
+
 //           res.status(200).json(dbUserData);
 //         });
 //       } catch (err) {
 //         console.log(err);
 //         res.status(500).json(err);
 //       }
-    
+
 // });
 
 // //logout already on api/userRoutes
@@ -74,8 +72,5 @@ router.get("/signup", (req, res) => {
 //         }
 
 // });
-   
-
 
 module.exports = router;
-
