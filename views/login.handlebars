@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<div class="card mx-auto w-75">
+<div class="card mx-auto w-75" id="signup-card">
   <div class="card-header">
     Sign Up
   </div>
@@ -39,7 +39,6 @@
         <input
           type="email"
           class="form-control"
-          {{! id needs to be unique }}
           id="email-signup"
           aria-describedby="emailHelp"
           placeholder="name@example.com"
@@ -52,8 +51,7 @@
         <input
           type="password"
           class="form-control"
-          {{! id needs to be unique }}
-          id="password"
+          id="password-signup"
         />
       </div>
       <button type="submit" class="btn btn-primary">Create a New Account</button>
