@@ -13,61 +13,64 @@
 
   <body>
 
-  <nav class="navbar justify-content-center" id="main-nav">
-  <div class="container-fluid" id="navbar">
-    <div class="d-flex justify-content-center">
-      {{#if logged_in}}
-      <a class="navbar-brand" id="nav-text" href="/homepage">
-        <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-        Cache Food Decisions
-      </a>
-      {{else}}
-      <a class="navbar-brand" id="nav-text" href="/login">
-        <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-        Cache Food Decisions
-      </a>
-      {{/if}}
-    </div>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="background-color: white;">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #BCD3F2;">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <nav class="navbar justify-content-center" id="main-nav">
+    <div class="container-fluid" id="navbar">
+      <div class="d-flex justify-content-center">
+        {{#if logged_in}}
+        <a class="navbar-brand" id="nav-text" href="/homepage">
+          <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          Cache Food Decisions
+        </a>
+        {{else}}
+        <a class="navbar-brand" id="nav-text" href="/login">
+          <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          Cache Food Decisions
+        </a>
+        {{/if}}
       </div>
 
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="menu-options">
-          {{#if logged_in}}
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-          {{else}}
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/login">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">Sign Up!</a>
-          </li>
-          {{/if}}
-        </ul>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="background-color: white;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #BCD3F2;">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="menu-options">
+            {{#if logged_in}}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <button class="btn" id="logout">logout</button>
+            </li>
+            {{else}}
+            {{!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login">Home</a>
+            </li> --}}
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login or Sign Up</a>
+            </li>
+            {{!-- <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign Up!</a>
+            </li> --}}
+            {{/if}}
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  </nav>
+    </nav>
 
-    {{{body}}}
+    <main>  
 
-    <!-- If the user is logged in, load the JS script for when they logout -->
+      {{{body}}}
+
+    </main>  
+      <!-- If the user is logged in, load the JS script for when they logout -->
     {{#if logged_in}}
     <script src="/javascript/logout.js"></script>
     {{/if}}

@@ -2,8 +2,8 @@ const router = require("express").Router();
 const { User } = require("../models"); //needs userData here?
 const withAuth = require("../utils/auth");
 
-// user must be able to access the main login page, so can't have withAuth here
-router.get("/", async (req, res) => {
+// prevent non logged in users from viewing the homepage
+router.get("/", withAuth, async (req, res) => {
   try {
     //find the user based on email
     const userData = await User.findAll({
@@ -23,55 +23,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 router.get("/login", (req, res) => {
-  // if session exists, redirect user to the homepage
   if (req.session.logged_in) {
     res.redirect("/");
     return;
   }
   res.render("login");
 });
-
-router.get("/signup", (req, res) => {
-  //   if (req.session.logged_in) {
-  //     res.redirect("/");
-  //     return;
-  //   }
-
-  res.render("signup");
-});
-// //create new user
-// router.post('/signup', async (req, res) => {
-//     try {
-//         const dbUserData = await User.create({
-//           username: req.body.username,
-//           email: req.body.email,
-//           password: req.body.password,
-//         });
-
-//         req.session.save(() => {
-//           req.session.logged_in = true;
-
-//           res.status(200).json(dbUserData);
-//         });
-//       } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//       }
-
-// });
-
-// //logout already on api/userRoutes
-// router.post("/logout", (req, res) =>  {
-//     if(req.session.logged_in) {
-//         req.session.destroy(() => {
-//              res.status(204).end();
-//              });
-//         } else {
-//           res.status(404).end();
-//         }
-
-// });
 
 module.exports = router;

@@ -1,0 +1,7 @@
+{{! do I need to make a shopping list model to utilize MVC? }}
+
+<!-- Loop over each list object -->
+{{#each item as |list|}}
+  <h3> {{item.name}} - {{item.amount}} {{item.unit}}</h3>
+
+{{/each}}

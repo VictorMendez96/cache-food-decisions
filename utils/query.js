@@ -1,4 +1,5 @@
 require("dotenv").config();
+const e = require("express");
 const inputToQuery = require("./helpers");
 const parseIngredients = require("./helpers");
 
@@ -23,6 +24,8 @@ async function getRecipes(array) {
         //the recipe may be more than one serving...
         const tempObj = {
             id:'',
+            title: '',
+            image: '',
             instructions:'',
             ingredients:'',
             servings:'',
@@ -34,6 +37,8 @@ async function getRecipes(array) {
         const response = await fetch(url);
         const data = await response.json();
         tempObj[element].id = data[element].id;
+        tempObj[element].title = data[element].title;
+        tempObj[element].image = data[element].image
         tempObj[element].instructions = data[element].instructions;
         tempObj[element].ingredients = parseIngredients(data[element].extendedIngredients);
         tempObj[element].servings = data[element].servings;

@@ -53,7 +53,6 @@ router.post("/login", async (req, res) => {
       res.json({ user: userData, message: "You are now logged in!" });
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: `${error}` });
   }
 });
