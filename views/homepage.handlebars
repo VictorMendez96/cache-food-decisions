@@ -1,6 +1,8 @@
+<section >
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   Set User Preferences
 </button>
+</section>
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -11,23 +13,56 @@
       </div>
       <div class="modal-body">
         <h2>Diet</h2>
-        <input class="btn btn-primary" type="button" value="Gluten Free">
-        <input class="btn btn-primary" type="button" value="Dairy Free">
-        <input class="btn btn-primary" type="button" value="Keto">
-        <input class="btn btn-primary" type="button" value="Paleo">
-        <input class="btn btn-primary" type="button" value="Whole 30">
-        <input class="btn btn-primary" type="button" value="Vegan">
-        <input class="btn btn-primary" type="button" value="Vegetarian">
-        <input class="btn btn-primary" type="button" value="Pescatarian">
+        <select class="form-select" aria-label="Default select example">
+        <option id="diet" value="Gluten Free">Gluten Free</option>
+        <option id="diet" value="Keto">Keto</option>
+        <option id="diet" value="Vegetarian">Vegetarian</option>
+        <option id="diet" value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+        <option id="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+        <option id="diet" value="Vegan">Vegan</option>
+        <option id="diet" value="Pescetarian">Pescetarian</option>
+        <option id="diet" value="Paleo">Paleo</option>
+        <option id="diet" value="Primal">Primal</option>
+        <option id="diet" value="Low FODMAP">Low FODMAP</option>
+        <option id="diet" value="Whole30">Whole30</option>
+        </select>
         <hr>
-        <h2>Intolerances</h2>
 
+        <h2>Intolerances</h2>
+        <select class="form-select" aria-label="Default select example">
+        <option id="intolerances" value="Dairy">Dairy</option>
+        <option id="intolerances" value="Egg">Egg</option>
+        <option id="intolerances" value="Gluten">Gluten</option>
+        <option id="intolerances" value="Grain">Grain</option>
+        <option id="intolerances" value="Peanut">Peanut</option>
+        <option id="intolerances" value="Seafood">Seafood</option>
+        <option id="intolerances" value="Sesame">Sesame</option>
+        <option id="intolerances" value="Shellfish">Shellfish</option>
+        <option id="intolerances" value="Soy">Soy</option>
+        <option id="intolerances" value="Sulfite">Sulfite</option>
+        <option id="intolerances" value="Tree Nut">Tree Nut</option>
+        <option id="intolerances" value="Wheat">Wheat</option>
+        </select>
         <hr>
+
         <h2>Cuisines</h2>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Choose a Cuisine!</option>
+          <option id="cuisine" value="American">American</option>
+          <option id="cuisine" value="Chinese">Chinese</option>
+          <option id="cuisine" value="French">French</option>
+          <option id="cuisine" value="Greek">Greek</option>
+          <option id="cuisine" value="Indian">Indian</option>
+          <option id="cuisine" value="Italian">Italian</option>
+          <option id="cuisine" value="Mexican">Mexican</option>
+          <option id="cuisine" value="Middle Eastern">Middle Eastern</option>
+          <option id="cuisine" value="Thai">Thai</option>
+          <option id="cuisine" value="Vietnamese">Vietnamese</option>
+        </select>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-primary" id="get-prefs">Update</button>
       </div>
     </div>
   </div>
@@ -35,7 +70,7 @@
 
 
 <section class="flex-row justify-center">
-  {{#each gallery.paintings as |painting|}}
-  {{> painting-details}}
+  {{#each recipes as |recipes|}}
+  {{> recipe}}
   {{/each}}
 </section>
