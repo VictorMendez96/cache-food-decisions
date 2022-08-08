@@ -1,14 +1,13 @@
 const router = require("express").Router();
-const { User } = require("../models"); //needs userData here?
+const { User } = require("../models"); 
 const withAuth = require("../utils/auth");
 
-// prevent non logged in users from viewing the homepage
+// prevent non logged in users from viewing the dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     //find the user based on email
     const userData = await User.findAll({
         attributes: { exclude: ['password'] },
-        // order: [['lastName', 'ASC']],
       });
     
       //serialize the data
@@ -24,8 +23,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
 });
 
 
+// landing page
 router.get("/", (req, res) => {
-  res.render("homepage");  
+  res.render("login");  
   
 });
 
