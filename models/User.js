@@ -39,6 +39,18 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    intolerances: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    cuisines: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    diet: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     hooks: {
