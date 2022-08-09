@@ -10,13 +10,14 @@ router.post("/signup", async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName
     });
+    console.log(userData);
 
     req.session.save(() => {
-      // req.session.user_id = userData.id;
-      // req.session.email = userData.email;
+      req.session.user_id = userData.id;
+      req.session.email = userData.email;
       req.session.logged_in = true;
 
-      res.status(200).json({ user: userData, message:"New user created. You are now logged in." });
+      res.status(200).json({ user: userData, message:"New user created. You are now logged in.", ok: true });
     });
   } catch (error) {
     console.log(error);
@@ -53,13 +54,12 @@ router.post("/login", async (req, res) => {
       res.json({ user: userData, message: "You are now logged in!" });
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: `${error}` });
   }
 });
 
 //logout
-router.post("/login", (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     //removing the session
     req.session.destroy(() => {

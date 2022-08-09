@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
         console.log(response);
         if(response.ok) {
             //then redirect browser to the food choices home page
-            document.location.replace("/")
+            document.location.replace("/dashboard")
         } else {
             alert("Your login was unsuccessful, please try again");
         }
