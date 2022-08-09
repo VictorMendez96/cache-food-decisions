@@ -1,6 +1,16 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Set User Preferences
-</button>
+<div class="card text-center" id="dashboard-card">
+  <div class="card-header">
+    Hello, {{user.name}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Start your Meal Plan!</h5>
+    <p class="card-text">Update your Preferences and start browsing recipes! </p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Set User Preferences
+    </button>
+    <input class="btn btn-primary" type="submit" value="Browse Recipes!">
+  </div>
+</div>
 
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -11,6 +21,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <form>
         <h2>Diet</h2>
         <select class="form-select" aria-label="Default select example">
         <option selected>Choose a Diet</option>
@@ -29,21 +40,18 @@
         <hr>
 
         <h2>Intolerances</h2>
-        <select class="form-select" aria-label="Default select example">
-        <option selected>Choose an Intolerance</option>
-        <option id="intolerances" value="Dairy">Dairy</option>
-        <option id="intolerances" value="Egg">Egg</option>
-        <option id="intolerances" value="Gluten">Gluten</option>
-        <option id="intolerances" value="Grain">Grain</option>
-        <option id="intolerances" value="Peanut">Peanut</option>
-        <option id="intolerances" value="Seafood">Seafood</option>
-        <option id="intolerances" value="Sesame">Sesame</option>
-        <option id="intolerances" value="Shellfish">Shellfish</option>
-        <option id="intolerances" value="Soy">Soy</option>
-        <option id="intolerances" value="Sulfite">Sulfite</option>
-        <option id="intolerances" value="Tree Nut">Tree Nut</option>
-        <option id="intolerances" value="Wheat">Wheat</option>
-        </select>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Dairy">Dairy</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Egg">Egg</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Gluten">Gluten</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Grain">Grain</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Peanut">Peanut</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Seafood">Seafood</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Sesame">Sesame</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Shellfish">Shellfish</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Soy">Soy</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Sulfite">Sulfite</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Tree Nut">Tree Nut</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="button" id="intolerances" value="Wheat">Wheat</button>
         <hr>
 
         <h2>Cuisines</h2>
@@ -60,10 +68,11 @@
           <option id="cuisine" value="Thai">Thai</option>
           <option id="cuisine" value="Vietnamese">Vietnamese</option>
         </select>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="get-prefs">Update</button>
+        <button type="button" class="btn btn-primary" onclick=getChoices() >Update</button>
       </div>
     </div>
   </div>
@@ -75,3 +84,4 @@
   {{> recipe-details}}
   {{/each}}
 </section>
+
