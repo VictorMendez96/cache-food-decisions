@@ -6,11 +6,11 @@ const parseIngredients = require("./helpers");
 const apiKey = process.env.API_KEY;
 
 //pass in the user object - variables will be queried. Offset will be a stored page variable 
-async function getChoices(user, offset) {
+async function getChoices(user) {
   const user_cuisines = inputToQuery(user.cuisines);
   const user_diet = inputToQuery(user.diet);
   const user_intolerances = inputToQuery(user.intolerances);
-  const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${user_cuisines}&diet=${user_diet}&intolerances=${user_intolerances}&offset=${offset}&instructionsRequired=true&apiKey=${apiKey}`;
+  const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${user_cuisines}&diet=${user_diet}&intolerances=${user_intolerances}&number=100&instructionsRequired=true&apiKey=${apiKey}`;
   const response = await fetch(url);
   const data = await response.json();
   return data.results;

@@ -6,6 +6,9 @@ const userData = [
     password: "12345678",
     firstName: "Hugh",
     lastName: "Jazz",
+    intolerances: "Dairy,Gluten",
+    cuisines: "",
+    diet: "Paleo",
   },
 ];
 

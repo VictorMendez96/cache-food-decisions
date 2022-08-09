@@ -1,4 +1,3 @@
-const seedUserData = require("./userData-seeds");
 const seedUsers = require("./user-seeds");
 
 const sequelize = require("../config/connection");
@@ -8,10 +7,6 @@ const seedAll = async () => {
   console.log("\n----- DATABASE SYNCED -----\n");
   await seedUsers();
   console.log("\n----- USERS SEEDED -----\n");
-
-  await seedUserData();
-  console.log("\n----- USER DATA SEEDED -----\n");
-  process.exit(0);
 };
 
 seedAll();
