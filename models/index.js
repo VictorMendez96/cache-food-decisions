@@ -1,8 +1,4 @@
 const User = require("./User");
-const userData = require("./userData");
+const Recipe = require("./Recipe");
 
-User.hasOne(userData, {
-  foreignKey: "id",
-});
-
-module.exports = { User, userData };
+module.exports = { User, Recipe };
