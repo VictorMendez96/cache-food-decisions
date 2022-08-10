@@ -16,6 +16,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
       res.render('dashboard', {
         users,
         logged_in: req.session.logged_in,
+        email: req.session.email
       });
    } catch (error) {
     res.status(500).json(error);

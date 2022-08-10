@@ -66,20 +66,9 @@ function makeList(recipeArray) {
   return list;
 }
 
-function getPriceEstimate(recipeList) {
-  const estimate = 0;
-  recipeList.forEach((element) => {
-    estimate += parseInt(recipeList[element].totalPrice);
-  });
-  return estimate;
-}
-
-function functionName(text) {}
-
 module.exports = {
   inputToQuery,
   userDataToDisplay,
   parseIngredients,
   makeList,
-  getPriceEstimate,
 };

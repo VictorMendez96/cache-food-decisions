@@ -3,8 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
-const helpers = require("./utils/helpers"); 
-
+const helpers = require("./utils/helpers");
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -13,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //use the helper files in utils
-const hbs = exphbs.create(); //helper object in the callback
+const hbs = exphbs.create({ helpers }); //helper object in the callback
 
 const oneDay = 100 * 60 * 60 * 24;
 const sess = {
@@ -22,7 +21,7 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
+    db: sequelize,
   }),
 };
 

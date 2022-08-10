@@ -1,3 +1,7 @@
+<h1>Your Shopping list</h1>
+{{msg}}
+<form method="POST" action="send">
+
 <p>"The recipe Soy-and-Ginger-Glazed Salmon with Udon Noodles can be made
   <b>in approximately 1 hour and 35 minutes
   </b>. One portion of this dish contains about
@@ -16,7 +20,17 @@
   <b>deserves a spoonacular score of 92% </b>. This score is great. If you like
   this recipe, take a look at these similar recipes: Salmon With Soy-ginger
   Noodles, Ginger-Soy Salmon With Soba Noodles, and Soy & ginger salmon with
-  soba noodles.",</p>
+  soba noodles.",
+  </p>
+  <h1>Would you like this info send your email?</h1>
+  <p>
+   <label for="email">Enter Your Email Address</label>
+      <input type="email" class="form-control" id="email" name="e" placeholder="Enter email" name="email">
+  </p>
+  <p>
+  <button type="submit">Send Me The List!</button>
+   </p>
+  </form>
 
     {{!-- 1. Wrap final sendMail method in email.js in an ansyn/await function
     2. Make up which email to send with if else in email.handlebars with if/else statements
