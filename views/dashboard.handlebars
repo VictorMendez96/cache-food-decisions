@@ -1,6 +1,16 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Set User Preferences
-</button>
+<div class="card text-center" id="dashboard-card">
+  <div class="card-header">
+    Hello, {{user.name}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Start your Meal Plan!</h5>
+    <p class="card-text">Update your Preferences and start browsing recipes! </p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Set User Preferences
+    </button>
+    <a href="/recipes"><input class="btn btn-primary" type="submit" value="Browse Recipes!"></a>
+  </div>
+</div>
 
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -11,59 +21,59 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <form>
         <h2>Diet</h2>
         <select class="form-select" aria-label="Default select example">
         <option selected>Choose a Diet</option>
-        <option id="diet" value="Gluten Free">Gluten Free</option>
-        <option id="diet" value="Keto">Keto</option>
-        <option id="diet" value="Vegetarian">Vegetarian</option>
-        <option id="diet" value="Lacto-Vegetarian">Lacto-Vegetarian</option>
-        <option id="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
-        <option id="diet" value="Vegan">Vegan</option>
-        <option id="diet" value="Pescetarian">Pescetarian</option>
-        <option id="diet" value="Paleo">Paleo</option>
-        <option id="diet" value="Primal">Primal</option>
-        <option id="diet" value="Low FODMAP">Low FODMAP</option>
-        <option id="diet" value="Whole30">Whole30</option>
+        <option class="diet" value="Gluten Free">Gluten Free</option>
+        <option class="diet" value="Keto">Keto</option>
+        <option class="diet" value="Vegetarian">Vegetarian</option>
+        <option class="diet" value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+        <option class="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+        <option class="diet" value="Vegan">Vegan</option>
+        <option class="diet" value="Pescetarian">Pescetarian</option>
+        <option class="diet" value="Paleo">Paleo</option>
+        <option class="diet" value="Primal">Primal</option>
+        <option class="diet" value="Low FODMAP">Low FODMAP</option>
+        <option class="diet" value="Whole30">Whole30</option>
         </select>
         <hr>
 
         <h2>Intolerances</h2>
-        <select class="form-select" aria-label="Default select example">
-        <option selected>Choose an Intolerance</option>
-        <option id="intolerances" value="Dairy">Dairy</option>
-        <option id="intolerances" value="Egg">Egg</option>
-        <option id="intolerances" value="Gluten">Gluten</option>
-        <option id="intolerances" value="Grain">Grain</option>
-        <option id="intolerances" value="Peanut">Peanut</option>
-        <option id="intolerances" value="Seafood">Seafood</option>
-        <option id="intolerances" value="Sesame">Sesame</option>
-        <option id="intolerances" value="Shellfish">Shellfish</option>
-        <option id="intolerances" value="Soy">Soy</option>
-        <option id="intolerances" value="Sulfite">Sulfite</option>
-        <option id="intolerances" value="Tree Nut">Tree Nut</option>
-        <option id="intolerances" value="Wheat">Wheat</option>
-        </select>
+        <p>Pick one, many, or none!</p>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Dairy">Dairy</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Egg">Egg</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Gluten">Gluten</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Grain">Grain</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Peanut">Peanut</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Seafood">Seafood</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Sesame">Sesame</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Shellfish">Shellfish</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Soy">Soy</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Sulfite">Sulfite</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Tree Nut">Tree Nut</button>
+        <button type="button" class="btn btn-primary int" data-bs-toggle="button" value="Wheat">Wheat</button>
         <hr>
 
-        <h2>Cuisines</h2>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Choose a Cuisine!</option>
-          <option id="cuisine" value="American">American</option>
-          <option id="cuisine" value="Chinese">Chinese</option>
-          <option id="cuisine" value="French">French</option>
-          <option id="cuisine" value="Greek">Greek</option>
-          <option id="cuisine" value="Indian">Indian</option>
-          <option id="cuisine" value="Italian">Italian</option>
-          <option id="cuisine" value="Mexican">Mexican</option>
-          <option id="cuisine" value="Middle Eastern">Middle Eastern</option>
-          <option id="cuisine" value="Thai">Thai</option>
-          <option id="cuisine" value="Vietnamese">Vietnamese</option>
-        </select>
+        <h2>Cuisines </h2><p>Pick one, many, or none!</p>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="American">American</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="Chinese">Chinese</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="French">French</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="Greek">Greek</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="Indian">Indian</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="Italian">Italian</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="Mexican">Mexican</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="Middle Eastern">Middle Eastern</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="Thai">Thai</button>
+        <button type="button" class="btn btn-primary cuisine" data-bs-toggle="button" value="Vietnamese">Vietnamese</button>
+        <hr>
+
+
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="get-prefs">Update</button>
+        <button type="button" class="btn btn-primary" id="update" data-bs-dismiss="modal">Update</button>
       </div>
     </div>
   </div>
@@ -75,3 +85,5 @@
   {{> recipe-details}}
   {{/each}}
 </section>
+
+<script src="/javascript/dashboard.js"></script>

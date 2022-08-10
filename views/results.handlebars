@@ -1,0 +1,14 @@
+<div class="card text-center">
+  <div class="card-header">
+    Shopping List
+  </div>
+  <div class="card-body">
+    {{#each item as |list|}}
+    <p class="card-text">{{item.name}} - {{item.amount}} {{item.unit}}</p>
+    {{/each}}
+    <a href="#" class="btn btn-primary">Shopping List</a>
+    <a href="#" class="btn btn-primary">Back to Recipes</a>
+    <a href="#" class="btn btn-primary">back to user preferences</a>
+    <a href="#" class="btn btn-primary">show me everything</a>
+  </div>
+</div>

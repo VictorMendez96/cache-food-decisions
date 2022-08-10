@@ -1,4 +1,3 @@
-// password to our email account is: cachefood1
 const nodemailer = require("nodemailer");
 const hbs = require("nodemailer-express-handlebars");
 const path = require("path");
@@ -40,6 +39,4 @@ transporter.sendMail(mailOptions, function (error, info) {
   }
 });
 
-// shoppingListEmail().catch(console.error);
 
-// module.exports = { shoppingListEmail };

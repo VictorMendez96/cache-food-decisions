@@ -74,6 +74,7 @@ function getPriceEstimate(recipeList) {
   return estimate;
 }
 
+function addToList(id) {}
 function functionName(text) {}
 
 module.exports = {
