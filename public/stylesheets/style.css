@@ -1,27 +1,35 @@
 :root {
-    --primary: #05204A;
-    --secondary: #80A4ED;
-    --tertiary: #FE5F55;
-    --quatrinary: #FFE15C;
-    --light: #BCD3F2;
-  }
+  --primary: #05204a;
+  --secondary: #80a4ed;
+  --tertiary: #fe5f55;
+  --quatrinary: #ffe15c;
+  --light: #bcd3f2;
+}
 
 body {
-    background-image: url("/images/Kitchen-background.jpg");
-    background-size: cover;
+  background-image: url("/images/Kitchen-background.jpg");
+  background-size: cover;
 }
 
 #main-nav {
-    background-color: var(--primary);
+  background-color: var(--primary);
 }
 
 #nav-text {
-    color: white;
-    justify-content: center;
+  color: white;
+  justify-content: center;
 }
 
 #menu-options {
-    color: var(--primary);
+  color: var(--primary);
+}
+
+.int {
+  margin: 4px;
+}
+
+.cuisine {
+  margin: 4px;
 }
 
 /* #login-card {
