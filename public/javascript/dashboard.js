@@ -65,7 +65,11 @@ const updateUserPrefs = async (event) => {
   console.log(userPrefs);
   const response = await fetch("/api/users/userPrefs", {
     method: "PUT",
-    body: JSON.stringify({ userPrefs }),
+    body: JSON.stringify({
+      intolerances: userPrefs.intolerances,
+      cuisines: userPrefs.cuisines,
+      diet: userPrefs.diet,
+    }),
     headers: { "Content-Type": "application/json" },
   });
   console.log(response);
