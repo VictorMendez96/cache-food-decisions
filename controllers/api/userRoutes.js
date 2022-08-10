@@ -8,7 +8,7 @@ router.post("/signup", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       firstName: req.body.firstName,
-      lastName: req.body.lastName
+      lastName: req.body.lastName,
     });
     console.log(userData);
 
@@ -17,12 +17,16 @@ router.post("/signup", async (req, res) => {
       req.session.email = userData.email;
       req.session.logged_in = true;
 
-      res.status(200).json({ user: userData, message:"New user created. You are now logged in.", ok: true });
+      res.status(200).json({
+        user: userData,
+        message: "New user created. You are now logged in.",
+        ok: true,
+      });
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: `${error}` });
-  };
+  }
 });
 
 //login with email
@@ -35,19 +39,23 @@ router.post("/login", async (req, res) => {
     console.log(userData);
 
     if (!userData) {
-      res.status(400).json({ message: "Incorrect email or password, please try again." });
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again." });
       return;
     }
     //verify the password
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: "Incorrect email or password, please try again." });
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again." });
       return;
     }
     //creating session variables based on user
     req.session.save(() => {
-      // req.session.user_id = userData.id;
+      req.session.user_id = userData.id;
       // req.session.username = userData.firstName;
       req.session.email = req.body.email;
       req.session.logged_in = true;
@@ -68,6 +76,30 @@ router.post("/logout", (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+//update user preferences
+router.put("/userPrefs", async (req, res) => {
+  // update a category by its `id` value
+  try {
+    const userData = await User.update(req.body, {
+      where: { id: req.session.user_id },
+    });
+    console.log("userData:");
+    console.log(userData);
+    console.log("user_id:");
+    console.log(req.session.user_id);
+    console.log("req.body:");
+    console.log(req.body);
+    if (!userData) {
+      res.status(404).json({ message: "No user with that id!" });
+      return;
+    }
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

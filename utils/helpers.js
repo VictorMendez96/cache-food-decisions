@@ -66,6 +66,20 @@ function makeList(recipeArray) {
   return list;
 }
 
+
+
+function getPriceEstimate(recipeList) {
+  const estimate = 0;
+  recipeList.forEach((element) => {
+    estimate += parseInt(recipeList[element].totalPrice);
+  });
+  return estimate;
+}
+
+function addToList(id) {}
+function functionName(text) {}
+
+
 module.exports = {
   inputToQuery,
   userDataToDisplay,
