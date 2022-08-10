@@ -17,7 +17,7 @@
     <div class="container-fluid" id="navbar">
       <div class="d-flex justify-content-center">
         {{#if logged_in}}
-        <a class="navbar-brand" id="nav-text" href="/homepage">
+        <a class="navbar-brand" id="nav-text" href="/dashboard">
           <img src="images/basket2-fillwhite.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
           Cache Food Decisions
         </a>
@@ -43,7 +43,7 @@
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="menu-options">
             {{#if logged_in}}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/shoppingList">Shopping List</a>
