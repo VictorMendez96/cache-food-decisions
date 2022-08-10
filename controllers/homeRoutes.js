@@ -7,20 +7,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
   try {
     //find the user based on email
     const userData = await User.findAll({
-
-        attributes: { exclude: ['password'] },
-      });
-    
-      //serialize the data
-      const users = userData.map((user) => user.get({ plain: true }));
-      // Pass the logged in flag to the template 
-      res.render('dashboard', {
-        users,
-        logged_in: req.session.logged_in,
-       
-      });
-   } catch (error) {
-=======
       attributes: { exclude: ["password"] },
     });
 
@@ -32,7 +18,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (error) {
-
     res.status(500).json(error);
   }
 });
