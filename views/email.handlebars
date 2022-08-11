@@ -22,6 +22,8 @@
   Noodles, Ginger-Soy Salmon With Soba Noodles, and Soy & ginger salmon with
   soba noodles.",
   </p>
+  {{#if nodemailer}}
+  <div class = "hidden">
   <h1>Would you like this info send your email?</h1>
   <p>
    <label for="email">Enter Your Email Address</label>
@@ -31,5 +33,6 @@
   <button type="submit">Send Me The List!</button>
    </p>
   </form>
-
+</div>
+{{/if}}
  
