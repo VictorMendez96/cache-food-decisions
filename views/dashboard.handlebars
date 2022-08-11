@@ -1,6 +1,7 @@
-<div class="card text-center" id="dashboard-card">
+<div id="dashboard-card">
+<div class="card text-center">
   <div class="card-header">
-    Hello, {{user.firstName}}
+    Hello, {{User.firstName}}
   </div>
   <div class="card-body">
     <h5 class="card-title">Start your Meal Plan!</h5>
@@ -79,14 +80,11 @@
   </div>
 </div>
 
-
+</div>
 <section class="flex-row justify-center">
   {{#each element.id as |recipe|}}
   {{> recipe-details}}
   {{/each}}
 </section>
-
-
-<script src="/utils/query.js"></script>
 
 <script src="/javascript/dashboard.js"></script>

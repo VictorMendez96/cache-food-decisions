@@ -51,6 +51,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    recipes: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     hooks: {
