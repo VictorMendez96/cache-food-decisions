@@ -36,9 +36,13 @@ router.post("/", async (req, res) => {
     if (!recipes) {
       res.status(400).json({ message: "No Recipes available" });
       return;
+    } else {
+      //not calling the right handlebars
+      res.status(200).render("recipe-details", {
+        recipes,
+      });
     }
-    res.status(200).json(recipes);
-    return;
+
   } catch (err) {
     res.status(500).json(err);
     return;
