@@ -45,4 +45,21 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.put("/userPrefs", async (req, res) => {
+  // update a category by its `id` value
+  try {
+    const userData = await User.update(req.body, {
+      where: { id: req.session.user_id },
+    });
+    if (!userData) {
+      res.status(404).json({ message: "No user with that id!" });
+      return;
+    }
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
