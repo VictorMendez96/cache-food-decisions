@@ -19,23 +19,29 @@ const getUserData = async (event) => {
   const response = await fetch("/api/recipes/", {
     method: "GET",
   });
-  console.log("window response");
   let res = await response.json();
-  console.log(res);
   user.intolerances = res.intolerances;
   user.cuisines = res.cuisines;
   user.diet = res.diet;
-  console.log(
-    `diet: ${user.diet}\ncuisines: ${user.cuisines}\nintolerances=${user.intolerances}`
-  );
-  console.log(`res: ${res}`);
 };
 
 const getRecipes = async (event) => {
-  console.log(JSON.stringify(user));
   const response = await fetch("/api/recipes/", {
     method: "POST",
     body: JSON.stringify({ user }),
+    headers: { "Content-Type": "application/json" },
+  });
+  return response;
+  // let res = JSON.stringify(response);
+};
+
+const putRecipes = async (event) => {
+  console.log(JSON.stringify(user));
+  const response = await fetch("/api/recipes/userPrefs", {
+    method: "PUT",
+    body: JSON.stringify({
+      recipes: recipeArray.join("+"),
+    }),
     headers: { "Content-Type": "application/json" },
   });
 
@@ -45,8 +51,8 @@ const getRecipes = async (event) => {
   console.log(`res: ${res}`);
 };
 
-//get actual recipes now?
-
 document.getElementById("search").addEventListener("click", getUserData());
 
 document.getElementById("recipeSearch").addEventListener("click", getRecipes);
+
+//document.getElementById("postRecipe").addEventListener("click", putRecipes);
