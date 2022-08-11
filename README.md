@@ -43,8 +43,9 @@ SO THAT I can enjoy what little free time I have.
 ```
 
 ## Usage
+```
 From the root directory, type in 'node index.js' or 'npm run start'
-
+```
 
 ## License
 Distributed under the **MIT** license.
