@@ -38,6 +38,12 @@ body {
   left: 34%;
 }
 
+#recipe-buttons {
+  display: flex;
+  justify-content: center;
+  background-color: var(--quatrinary);
+}
+
 .card-group {
   position: absolute;
   top: 30%;
@@ -46,4 +52,8 @@ body {
 
 .btn {
   --bs-btn-active-color: --quatrinary;
+}
+
+.recnew {
+  margin: 4px;
 }
