@@ -18,12 +18,6 @@ router.get("/", async (req, res) => {
       diet: userData.diet,
     };
 
-    //let recipes = await getChoices(new_user);
-    console.log("newUser:");
-    console.log(new_user);
-    console.log("recipes:");
-    //console.log(recipes);
-
     res.status(200).json(new_user);
   } catch (err) {
     res.status(500).json(err);
@@ -31,24 +25,24 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
-  // try {
-  let new_user = {
-    intolerances: req.body.user.intolerances,
-    cuisines: req.body.user.cuisines,
-    diet: req.body.user.diet,
-  };
+  try {
+    let new_user = {
+      intolerances: req.body.user.intolerances,
+      cuisines: req.body.user.cuisines,
+      diet: req.body.user.diet,
+    };
 
-  let recipes = await getChoices(new_user);
-  console.log("newUser:");
-  console.log(new_user);
-  console.log("recipes:");
-  console.log(recipes);
-
-  res.status(200).json(recipes);
-  // } catch (err) {
-  // res.status(500).json(err);
-  // }
+    let recipes = await getChoices(new_user);
+    if (!recipes) {
+      res.status(400).json({ message: "No Recipes available" });
+      return;
+    }
+    res.status(200).json(recipes);
+    return;
+  } catch (err) {
+    res.status(500).json(err);
+    return;
+  }
 });
 
 module.exports = router;
