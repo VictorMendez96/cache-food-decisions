@@ -2,7 +2,7 @@ require("dotenv").config();
 const e = require("express");
 const inputToQuery = require("./helpers");
 const parseIngredients = require("./helpers");
-
+const axios = require("axios");
 const apiKey = process.env.API_KEY;
 
 //pass in the user object - variables will be queried. Offset will be a stored page variable
@@ -11,9 +11,8 @@ async function getChoices(user) {
   const user_diet = user.diet;
   const user_intolerances = user.intolerances;
   const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${user_cuisines}&diet=${user_diet}&intolerances=${user_intolerances}&number=10&instructionsRequired=true&apiKey=${apiKey}`;
-  const response = await fetch(url);
-  const data = await response.json();
-  return data.results;
+  const response = await axios.get(url);
+  return response.data.results;
 }
 
 //store recipes in array? Loop through and tabulate cost, ingredients, amounts? Hand info to helper function to compile for shopping list
