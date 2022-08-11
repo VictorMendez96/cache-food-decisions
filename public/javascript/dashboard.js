@@ -38,14 +38,6 @@ function getUserPrefs() {
   const query_intolerances = inputToQuery(intolerances);
   const query_cuisines = inputToQuery(cuisines);
 
-  console.log("After Consolidation:");
-  console.log("diet");
-  console.log(diet);
-  console.log("intolerances");
-  console.log(query_intolerances);
-  console.log("cuisines");
-  console.log(query_cuisines);
-
   user_diet = diet;
   user_intolerances = query_intolerances;
   user_cuisines = query_cuisines;
@@ -61,8 +53,6 @@ function getUserPrefs() {
 
 const updateUserPrefs = async (event) => {
   let userPrefs = getUserPrefs();
-  console.log("clicked!");
-  console.log(userPrefs);
   const response = await fetch("/api/users/userPrefs", {
     method: "PUT",
     body: JSON.stringify({
@@ -72,14 +62,6 @@ const updateUserPrefs = async (event) => {
     }),
     headers: { "Content-Type": "application/json" },
   });
-  console.log(response);
-  if (response.ok) {
-    //then redirect browser to the food choices home page
-    alert("User preferences updated");
-  } else {
-    alert("Your update was unsuccessful, please try again");
-  }
-  console.log(response);
 };
 
 document.getElementById("update").addEventListener("click", updateUserPrefs);

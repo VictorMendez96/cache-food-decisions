@@ -86,12 +86,6 @@ router.put("/userPrefs", async (req, res) => {
     const userData = await User.update(req.body, {
       where: { id: req.session.user_id },
     });
-    console.log("userData:");
-    console.log(userData);
-    console.log("user_id:");
-    console.log(req.session.user_id);
-    console.log("req.body:");
-    console.log(req.body);
     if (!userData) {
       res.status(404).json({ message: "No user with that id!" });
       return;

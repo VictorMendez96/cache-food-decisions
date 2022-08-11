@@ -9,6 +9,7 @@ const userData = [
     intolerances: "Dairy,Gluten",
     cuisines: "",
     diet: "Paleo",
+    recipes: "",
   },
 ];
 
