@@ -43,3 +43,7 @@ body {
   top: 30%;
   left: 14%;
 }
+
+.btn {
+  --bs-btn-active-color: --quatrinary;
+}
