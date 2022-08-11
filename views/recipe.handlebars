@@ -1,4 +1,5 @@
 <a id="search"></a>
+
 <div class="card" style="width: 18rem;">
   <img src="{{element.image}}" class="card-img-top" />
   <div class="card-body">
@@ -15,14 +16,27 @@
   </ul>
 </div>
 
+
+<nav class="navbar fixed-bottom recnew" id="recipe-buttons">
+  <a href="/dashboard"><input
+      class="btn btn-primary"
+      type="submit"
+      value="Back to User Preferences"
+    /></a>
+  <button type="button" class="btn btn-primary recnew" id="recipeSearch">
+    Get Recipes
+  </button>
+  <a href="/shoppingList"><input
+      class="btn btn-primary recnew"
+      type="submit"
+      value="Take Me To My Shopping List"
+    /></a>
+</nav>
+
 {{!-- <div>
 
   <button onclick="getChoices({{user}})">Show More Options</button>
 </div> --}}
-
-<div>
-  <button id="recipeSearch">Get Recipes!</button>
-</div>
 
 {{! <script type="module" src="../"></script> }}
 <script type="module" src="/javascript/recipe.js"></script>

@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { User } = require("../../models");
 
 //create a new user
+
+
 router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create({
@@ -37,20 +39,20 @@ router.post("/login", async (req, res) => {
       where: { email: req.body.email },
     });
     console.log(userData);
-
+    
     if (!userData) {
       res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again." });
+      .status(400)
+      .json({ message: "Incorrect email or password, please try again." });
       return;
     }
     //verify the password
     const validPassword = await userData.checkPassword(req.body.password);
-
+    
     if (!validPassword) {
       res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again." });
+      .status(400)
+      .json({ message: "Incorrect email or password, please try again." });
       return;
     }
     //creating session variables based on user
@@ -89,7 +91,27 @@ router.put("/userPrefs", (req, res) => {
     {
       where: { user_id: req.session.user_id },
     }
-  );
-});
+    );
+  });
 
-module.exports = router;
+
+  router.get("/shoppingList", async (req, res) => {
+    try {
+     const userData = await User.findOne({
+       where: { email: req.body.email },
+     });
+
+      const user = userData.get({ plain: true });
+
+      res.render("shoppingList", {
+        ...user,
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  
+  module.exports = router;
+  
