@@ -1,4 +1,5 @@
-<div class="card text-center" id="dashboard-card">
+<div id="dashboard-card">
+<div class="card text-center">
   <div class="card-header">
     Hello, {{user.name}}
   </div>
@@ -79,7 +80,7 @@
   </div>
 </div>
 
-
+</div>
 <section class="flex-row justify-center">
   {{#each element.id as |recipe|}}
   {{> recipe-details}}

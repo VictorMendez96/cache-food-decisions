@@ -32,6 +32,14 @@ body {
   margin: 4px;
 }
 
-/* #login-card {
+#dashboard-card {
+  position: absolute;
+  top: 40%;
+  left: 33%;
+}
 
-} */
+.card-group {
+  position: absolute;
+  top: 30%;
+  left: 14%;
+}
