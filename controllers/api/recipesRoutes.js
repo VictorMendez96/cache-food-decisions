@@ -1,7 +1,7 @@
-//router.get the spoonacular function const router = require("express").Router();
 const router = require("express").Router();
 const { User } = require("../../models");
 const { getChoices } = require("../../utils/query");
+
 
 //create a new user
 router.get("/", async (req, res) => {
@@ -38,7 +38,7 @@ router.post("/recipes", async (req, res) => {
       res.status(400).json({ message: "No Recipes available" });
       return;
     } 
-    //not calling the right handlebars if changing name, right now redirecting to the results handlebar page
+    //not calling the right handlebars if changing name, right now redirecting to the results handlebar page, waiting on api to work
       res.status(200).render("results", {
         recipes,
       });

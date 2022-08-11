@@ -69,7 +69,7 @@ There are currently no tests written for this application.
 
 ## Screenshots
   ![Signup and Login page](./public/images/signup-login-page.png)
-  ![Dashboard](./public/images/dashboard.png)
+  ![Dashboard](./public/images/dashboard-page.png)
   ![Preferences Modal](./public/images/preferences.png)
 
 
