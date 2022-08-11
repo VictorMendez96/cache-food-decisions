@@ -43,8 +43,9 @@ SO THAT I can enjoy what little free time I have.
 ```
 
 ## Usage
+```
 From the root directory, type in 'node index.js' or 'npm run start'
-
+```
 
 ## License
 Distributed under the **MIT** license.
@@ -68,7 +69,7 @@ There are currently no tests written for this application.
 
 ## Screenshots
   ![Signup and Login page](./public/images/signup-login-page.png)
-  ![Dashboard](./public/images/dashboard.png)
+  ![Dashboard](./public/images/dashboard-page.png)
   ![Preferences Modal](./public/images/preferences.png)
 
 
