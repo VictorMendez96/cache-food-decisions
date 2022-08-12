@@ -49,12 +49,10 @@ router.post("/", async (req, res) => {
       return;
     }
 
-    //added a serialize statement, in case
-    const user = await recipes.get({ plain: true });
-
-    //not rendering page!!!
-    res.status(200).render("recipeList", {
-      recipes,
+    const recipeList = userData.map((user) => user.get({ plain: true }));
+    //not calling the right handlebars if changing name, right now redirecting to the results handlebar page, waiting on api to work
+    res.status(200).render("recipe", {
+      recipeList,
       got: true,
       user,
       logged_in: req.session.logged_in,
