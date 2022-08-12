@@ -31,6 +31,7 @@ const getRecipes = async (event) => {
     body: JSON.stringify({ user }),
     headers: { "Content-Type": "application/json" },
   });
+  got = true;
   return response;
   // let res = JSON.stringify(response);
 };
@@ -55,4 +56,4 @@ document.getElementById("search").addEventListener("click", getUserData());
 
 document.getElementById("recipeSearch").addEventListener("click", getRecipes);
 
-//document.getElementById("postRecipe").addEventListener("click", putRecipes);
+document.getElementById("postRecipe").addEventListener("click", putRecipes);
