@@ -60,7 +60,7 @@ router.get("/recipes", withAuth, async (req, res) => {
 
 router.get("/shoppingList", withAuth, async (req, res) => {
   try {
-    //find the user based on email
+    //find the user based on email.
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },
     });
