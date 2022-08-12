@@ -37,9 +37,11 @@ router.post("/", async (req, res) => {
       res.status(400).json({ message: "No Recipes available" });
       return;
     }
+
+    const recipeList = userData.map((user) => user.get({ plain: true }));
     //not calling the right handlebars if changing name, right now redirecting to the results handlebar page, waiting on api to work
-    res.status(200).render("results", {
-      recipes,
+    res.status(200).render("recipe", {
+      recipeList,
       got: true,
     });
   } catch (err) {
