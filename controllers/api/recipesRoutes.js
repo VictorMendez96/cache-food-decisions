@@ -1,7 +1,17 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 const { getChoices } = require("../../utils/query");
+const withAuth = require("../../utils/auth")
 
+
+//got this to work on Insomnia with api/shoppingList/test
+router.get("/test",  (req, res) => {
+  res.sendStatus(200);
+  console.log("ok");
+
+});
+
+//works in In
 //create a new user
 router.get("/", async (req, res) => {
   try {
@@ -23,6 +33,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+
 //Load recipe page and pass in the user preferences
 router.post("/", async (req, res) => {
   try {
@@ -37,10 +48,16 @@ router.post("/", async (req, res) => {
       res.status(400).json({ message: "No Recipes available" });
       return;
     }
-    //not calling the right handlebars if changing name, right now redirecting to the results handlebar page, waiting on api to work
-    res.status(200).render("results", {
+
+    //added a serialize statement, in case
+    const user = await recipes.get({ plain: true });
+
+    //not rendering page!!!
+    res.status(200).render("recipeList", {
       recipes,
       got: true,
+      user,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -48,7 +65,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/userPrefs", async (req, res) => {
+router.put("/userPrefs", withAuth, async (req, res) => {
   // update a category by its `id` value
   try {
     const userData = await User.update(req.body, {

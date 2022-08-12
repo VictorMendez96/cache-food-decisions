@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
+
 // prevent non logged in users from viewing the dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
@@ -57,23 +58,23 @@ router.get("/recipes", withAuth, async (req, res) => {
   }
 });
 
-router.get("/recipes", withAuth, async (req, res) => {
-  try {
-    //find the user based on email
-    const userData = await User.findAll({
-      attributes: { exclude: ["password"] },
-    });
+// router.get("/recipes", withAuth, async (req, res) => {
+//   try {
+//     //find the user based on email
+//     const userData = await User.findAll({
+//       attributes: { exclude: ["password"] },
+//     });
 
-    //serialize the data
-    const users = userData.map((user) => user.get({ plain: true }));
-    // Pass the logged in flag to the template
-    res.render("recipe", {
-      users,
-      logged_in: req.session.logged_in,
-    });
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+//     //serialize the data
+//     const users = userData.map((user) => user.get({ plain: true }));
+//     // Pass the logged in flag to the template
+//     res.render("recipe", {
+//       users,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// });
 
 module.exports = router;

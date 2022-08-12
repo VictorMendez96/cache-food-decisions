@@ -1,10 +1,16 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+//got this to work on Insomnia with api/shoppingList/test
+router.get("/test",  (req, res) => {
+  res.sendStatus(200);
+  console.log("ok");
 
+}
+);
+
+//works in Insom
 //create a new user
-
-
 router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create({
@@ -32,6 +38,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+//works with Insom
 //login with email
 router.post("/login", async (req, res) => {
   try {
@@ -81,6 +88,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
+//Insomnia message, "server returned nothing (no headers, no data)", added the console log and it said "Error: Transferred a partial file"
 //update user preferences
 router.put("/userPrefs", (req, res) => {
   User.update(
@@ -93,9 +101,11 @@ router.put("/userPrefs", (req, res) => {
       where: { user_id: req.session.user_id },
     }
     );
+    // res.sendStatus(200);
+    // console.log("ok");
   });
 
-
+//Insomnia doesn't like this route, cannot GET
   router.get("/shoppingList", async (req, res) => {
     try {
      const userData = await User.findOne({
