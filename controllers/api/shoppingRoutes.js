@@ -3,8 +3,6 @@ const { User } = require("../../models");
 
 
 //create a new user
-
-
 router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create({
@@ -81,6 +79,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
+
 //update user preferences
 router.put("/userPrefs", (req, res) => {
   User.update(
@@ -94,7 +93,6 @@ router.put("/userPrefs", (req, res) => {
     }
     );
   });
-
 
   router.get("/shoppingList", async (req, res) => {
     try {
