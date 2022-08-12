@@ -19,7 +19,7 @@ async function getChoices(user) {
 }
 
 //store recipes in array? Loop through and tabulate cost, ingredients, amounts? Hand info to helper function to compile for shopping list
-// hand off array of recipe ID's
+// hand off array of recipe ID's.
 async function getRecipes(array) {
   const recipes = [];
   array.forEach((element) => {
