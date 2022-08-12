@@ -1,42 +1,40 @@
 <a id="search"></a>
-
-<div class="card" style="width: 18rem;">
-  <img src="{{element.image}}" class="card-img-top" />
-  <div class="card-body">
-    <h5 class="card-title">{{element.title}}</h5>
-    <p class="card-text">{{element.instructions}}</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    {{#each item as |list|}}
-      <li class="list-group-item">{{item.name}}
-        -
-        {{item.amount}}
-        {{item.unit}}</li>
-    {{/each}}
-  </ul>
-</div>
-
-
-<nav class="navbar fixed-bottom recnew" id="recipe-buttons">
+<div>
   <a href="/dashboard"><input
       class="btn btn-primary"
       type="submit"
       value="Back to User Preferences"
     /></a>
-  <button type="button" class="btn btn-primary recnew" id="recipeSearch">
-    Get Recipes
-  </button>
-  <a href="/shoppingList"><input
-      class="btn btn-primary recnew"
+  <a href="/recipes"><button
+      type="button"
+      class="btn btn-primary"
+      id="recipeSearch"
+    >
+      Get Recipes
+    </button>
+  </a>
+  <button href="/shoppingList"><input
+      class="btn btn-primary"
       type="submit"
+      id="postRecipe"
       value="Take Me To My Shopping List"
-    /></a>
-</nav>
+    /></button>
+</div>
 
-{{!-- <div>
-
-  <button onclick="getChoices({{user}})">Show More Options</button>
-</div> --}}
-
-{{! <script type="module" src="../"></script> }}
+{{#if got}}
+  {{#each recipes as |item|}}
+    <div class="card" style="width: 18rem;">
+      <img src="{{item.image}}" class="card-img-top" />
+      <div class="card-body">
+        <h5 class="card-title">{{item.title}}</h5>
+      </div>
+      <a
+        href="#"
+        class="btn btn-primary"
+        id={{item.id}}
+        onclick="addToList(this.id)"
+      >Add this Recipe</a>
+    </div>
+  {{/each}}
+{{/if}}
 <script type="module" src="/javascript/recipe.js"></script>
