@@ -4,14 +4,7 @@ const { getChoices } = require("../../utils/query");
 const withAuth = require("../../utils/auth")
 
 
-//got this to work on Insomnia with api/shoppingList/test
-router.get("/test",  (req, res) => {
-  res.sendStatus(200);
-  console.log("ok");
 
-});
-
-//works in In
 //create a new user
 router.get("/", async (req, res) => {
   try {
@@ -50,7 +43,7 @@ router.post("/", async (req, res) => {
     }
 
     const recipeList = userData.map((user) => user.get({ plain: true }));
-    //not calling the right handlebars if changing name, right now redirecting to the results handlebar page, waiting on api to work
+    
     res.status(200).render("recipe", {
       recipeList,
       got: true,
