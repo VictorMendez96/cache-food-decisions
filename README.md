@@ -66,6 +66,7 @@ There are currently no tests written for this application.
 - [nodemailer](https://www.npmjs.com/package/nodemailer) is used to push the ingredient list to the user's email.
 - [Bootstrap](https://getbootstrap.com/)is used to design the layout and look of the app.
 - [bcrypt](https://www.npmjs.com/package/bcrypt) is used to hash passwords.
+- [axios](https://www.npmjs.com/package/axios) provides access to apis from the backend to the browser.
 
 ## Screenshots
   ![Signup and Login page](./public/images/signup-login-page.png)
