@@ -5,15 +5,20 @@ const user = {
   diet: "",
 };
 
-function addToList(id) {
-  // on click if they click it once it'll be added and if it's already been added clicking it again will remove it.
-  if (recipeArray.includes(id)) {
-    let ind = recipeArray.indexOf(id);
-    recipeArray.splice(ind, 1);
-  } else {
-    recipeArray.pop(id);
-  }
-}
+// function addToList(id) {
+//   // on click if they click it once it'll be added and if it's already been added clicking it again will remove it.
+//   if (recipeArray.includes(id)) {
+//     let ind = recipeArray.indexOf(id);
+//     recipeArray.splice(ind, 1);
+//   } else {
+//     recipeArray.pop(id);
+//   }
+//   console.log(recipeArray);
+// }
+
+// function test() {
+//   console.log("called");
+// }
 
 const getUserData = async (event) => {
   const response = await fetch("/api/recipes/", {
@@ -52,8 +57,10 @@ const putRecipes = async (event) => {
   console.log(`res: ${res}`);
 };
 
-document.getElementById("search").addEventListener("click", getUserData());
+// document.getElementById("search").addEventListener("click", getUserData());
 
-document.getElementById("recipeSearch").addEventListener("click", getRecipes);
+// document.getElementById("recipeSearch").addEventListener("click", getRecipes);
 
 document.getElementById("postRecipe").addEventListener("click", putRecipes);
+
+// document.querySelectorAll(".recipe").addEventListener("click", test);

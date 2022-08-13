@@ -1,4 +1,3 @@
-<a id="search"></a>
 <div>
   <a href="/dashboard"><input
       class="btn btn-primary"
@@ -27,12 +26,16 @@
     <div class="card-body">
       <h5 class="card-title">{{item.title}}</h5>
     </div>
-    <a
-      href="#"
-      class="btn btn-primary"
+    <button
+      type="button"
+      class="btn btn-primary recipe"
       id={{item.id}}
       onclick="addToList(this.id)"
-    >Add this Recipe</a>
+    >
+      Add Recipe
+    </button>
   </div>
 {{/each}}
+
 <script type="module" src="/javascript/recipe.js"></script>
+<script src="/javascript/recipe2.js"></script>
