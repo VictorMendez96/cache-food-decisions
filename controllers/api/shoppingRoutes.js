@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-
+const withAuth = require("../../utils/auth");
 
 //create a new user
 router.post("/signup", async (req, res) => {
@@ -56,8 +56,6 @@ router.post("/login", async (req, res) => {
     }
     //creating session variables based on user
     req.session.save(() => {
-      // req.session.user_id = userData.id;
-      // req.session.username = userData.firstName;
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You are now logged in!" });
@@ -81,7 +79,7 @@ router.post("/logout", (req, res) => {
 
 
 //update user preferences
-router.put("/userPrefs", (req, res) => {
+router.put("/userPrefs", withAuth, (req, res) => {
   User.update(
     {
       intolerances: req.body.intolerances,
@@ -94,7 +92,7 @@ router.put("/userPrefs", (req, res) => {
     );
   });
 
-  router.get("/shoppingList", async (req, res) => {
+  router.get("/shoppingList", withAuth, async (req, res) => {
     try {
      const userData = await User.findOne({
        where: { email: req.body.email },

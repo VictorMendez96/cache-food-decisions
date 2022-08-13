@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 //create a new user
 router.post("/signup", async (req, res) => {
@@ -80,7 +81,7 @@ router.post("/logout", (req, res) => {
 });
 
 //update user preferences
-router.put("/userPrefs", async (req, res) => {
+router.put("/userPrefs", withAuth, async (req, res) => {
   // update a category by its `id` value
   try {
     const userData = await User.update(req.body, {

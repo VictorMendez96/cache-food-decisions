@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 const { getChoices } = require("../../utils/query");
+const withAuth = require("../../utils/auth");
 
 //create a new user
 router.get("/", async (req, res) => {
@@ -24,7 +25,7 @@ router.get("/", async (req, res) => {
 });
 
 //Load recipe page and pass in the user preferences
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     let new_user = {
       intolerances: req.body.user.intolerances,
@@ -38,7 +39,6 @@ router.post("/", async (req, res) => {
       return;
     }
 
-    //not calling the right handlebars if changing name, right now redirecting to the results handlebar page, waiting on api to work.
     res.status(200).render("results", {
       recipes,
       got: true,
@@ -49,8 +49,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/userPrefs", async (req, res) => {
-  // update a category by its `id` value
+// update a category by its `id` value
+router.put("/userPrefs", withAuth, async (req, res) => {
   try {
     const userData = await User.update(req.body, {
       where: { id: req.session.user_id },
