@@ -1,1 +1,65 @@
-<h1>LOGIN NOW!!!</h1>
+<div  class="card-group" id="login-signup">
+
+<div class="card" id="login-card">
+    <div class="card-header">
+        Log In 
+    </div>
+
+    <div class="card-body">
+        <form class="login-form">
+            <div class="mb-3">
+                <label for="email-login" class="form-label">Email address</label>
+                <input type="email" class="form-control" 
+                id="email-login" aria-describedby="emailHelp" placeholder="name@example.com">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="password-login" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password-login">
+            </div>
+            <button type="submit" class="btn btn-primary">Log In!</button>
+        </form>
+    </div>
+</div>
+
+<div class="card" id="signup-card">
+  <div class="card-header">
+    Sign Up
+  </div>
+
+  <div class="card-body">
+    <form class="signup-form">
+      <div class="input-group">
+                <span class="input-group-text">First and last name</span>
+                <input type="text" aria-label="First name" id="first-name" class="form-control">
+                <input type="text" aria-label="Last name" id="last-name"  class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="email-signup" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email-signup"
+          aria-describedby="emailHelp"
+          placeholder="name@example.com"
+        />
+        <div id="emailHelp" class="form-text">We'll never share your email with
+          anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password-signup"
+          placeholder="use 8 characters"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Create a New Account</button>
+    </form>
+  </div>
+</div>
+
+</div>
+<script src="/javascript/login.js"></script>
+<script src="/javascript/signup.js"></script>

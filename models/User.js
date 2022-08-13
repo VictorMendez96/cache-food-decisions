@@ -4,7 +4,7 @@ const sequelize = require("../config/connection");
 
 class User extends Model {
   checkPassword(loginPw) {
-    return bcrypt(bcrypt.compareSync(loginPw, this.password));
+    return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
@@ -16,10 +16,13 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
     password: {
       type: DataTypes.STRING,
@@ -30,11 +33,27 @@ User.init(
     },
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+    },
+    intolerances: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    cuisines: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    diet: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    recipes: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {

@@ -1,33 +1,72 @@
-nav {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    background-color: aquamarine;   
+:root {
+  --primary: #05204a;
+  --secondary: #80a4ed;
+  --tertiary: #fe5f55;
+  --quatrinary: #ffe15c;
+  --light: #bcd3f2;
 }
 
-nav h1 {
-    background-color: black;
-    color: white;
-    padding: 5px;
-    border-radius: 8px;
+body {
+  background-image: url("/images/Kitchen-background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-nav div a {
-    text-decoration: none;
-    margin: 10px;
+#main-nav {
+  background-color: var(--primary);
 }
 
-.signup {
-    margin: 20vh auto;
-    width: 200px;
-    border-radius: 12px;
-    border: 1px solid black;
-    box-shadow: 5px 5px 10px lightgray;
-    background-color: lightgray;
+#nav-text {
+  color: white;
+  justify-content: center;
 }
 
-.signup-h1 {
-    background-color: green;
-    padding: 10px;
-    border-radius: 8px;
+#menu-options {
+  color: var(--primary);
+}
+
+.int {
+  margin: 4px;
+}
+
+.cuisine {
+  margin: 4px;
+}
+
+#dashboard-card {
+  position: absolute;
+  top: 40%;
+  left: 34%;
+}
+
+#recipe-buttons {
+  display: flex;
+  justify-content: center;
+  background-color: var(--quatrinary);
+}
+
+.card-group {
+  position: absolute;
+  top: 30%;
+  left: 14%;
+}
+
+.btn {
+  --bs-btn-active-color: --quatrinary;
+}
+
+.recnew {
+  margin: 4px;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  flex: 0 0 100%;
+}
+
+.col {
+  flex: 0 0 33.333%;
+  display: flex;
+  padding: 10px; /* gutter width */
 }

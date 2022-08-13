@@ -4,11 +4,12 @@ const logout = async () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
     });
-
+    
     if (response.ok) {
-        document.location.replace("/");
+        //if successful logout, redirect to login page
+        document.location.replace("/login");
     } else {
-        alert(response.statusText);
+        alert("Failed to logout");
     }
 };
 

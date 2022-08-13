@@ -1,38 +1,50 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class userData extends Model {}
+class Recipe extends Model {}
 
-userData.init(
+Recipe.init(
   {
-    data_id: {
+    sql_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    user_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: "user",
-        key: "id",
-      },
     },
-    intolerances: {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    cuisine: {
+    instructions: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    diet: {
+    ingredients: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    favorites: {
-      type: DataTypes.TEXT,
+    servings: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    meal: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    prepTime: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    totalPrice: {
+      type: DataTypes.DECIMAL(5, 2),
       allowNull: true,
     },
   },
@@ -41,8 +53,8 @@ userData.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "userData",
+    modelName: "recipe",
   }
 );
 
-module.exports = userData;
+module.exports = Recipe;
