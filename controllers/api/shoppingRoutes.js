@@ -29,8 +29,7 @@ router.post("/signup", async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
     });
-    console.log(userData);
-
+    
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.email = userData.email;
@@ -43,7 +42,6 @@ router.post("/signup", async (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: `${error}` });
   }
 });

@@ -22,9 +22,7 @@ const signupFormHandler = async(event) => {
         } else {
             alert("Your login was unsuccessful, please try again");
         }
-        console.log(response);
     }
-    
 };
 
 document.querySelector(".signup-form").addEventListener("submit", signupFormHandler);
