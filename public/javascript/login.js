@@ -6,8 +6,6 @@ const loginFormHandler = async (event) => {
   const email = document.querySelector("#email-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
 
-  console.log(email, password);
-
   if (email && password) {
     //send the email and password to the server with a post request
     const response = await fetch("/api/users/login", {
@@ -15,14 +13,13 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     });
-    console.log(response);
+    
     if (response.ok) {
       //then redirect browser to the food choices home page
       document.location.replace("/dashboard");
     } else {
       alert("Your login was unsuccessful, please try again");
     }
-    console.log(response);
   }
 };
 

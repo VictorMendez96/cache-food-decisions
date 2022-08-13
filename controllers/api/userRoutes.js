@@ -11,8 +11,7 @@ router.post("/signup", async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
     });
-    console.log(userData);
-
+    
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.email = userData.email;
@@ -25,7 +24,6 @@ router.post("/signup", async (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: `${error}` });
   }
 });
@@ -37,8 +35,7 @@ router.post("/login", async (req, res) => {
     const userData = await User.findOne({
       where: { email: req.body.email },
     });
-    console.log(userData);
-
+    
     if (!userData) {
       res
         .status(400)

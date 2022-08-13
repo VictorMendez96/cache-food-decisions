@@ -4,7 +4,7 @@
 
 ## Description
 
-This app provides a way to organize a busy person's life. It gives the user choices on diet, allergies, and types of food, and creates a page with recipe cards the user may select from which the ingredients are then pushed to a shopping list. The list will allow the user to look through ingredients they already own and not purchase something they already have. The app uses a MYSQL database for the recipes and user preferences, is written in Javascript and uses Node.js, Express.js, Sequelize, and is deployed using Heroku. The app keeps user settings secure with bcrypt and keeps their information through the use of cookies.
+This app provides a way to organize a busy person's life. It gives the user choices on diet, allergies, and types of food, and creates a page with recipe cards the user may select from which the ingredients are then pushed to a shopping list. The list will allow the user to look through ingredients they already own and not purchase something they already have. The app uses a MYSQL database for the recipes and user preferences, is written in Javascript and uses Node.js, Express.js, Sequelize ORM, MVC folder structure, and is deployed using Heroku. The app keeps user settings secure with bcrypt and keeps their information through the use of cookies.
 
 
 ## User Story
@@ -74,7 +74,7 @@ There are currently no tests written for this application.
 
 
 ## Questions Links
-[Heroku Deployment]()
+[Heroku Deployment](http://damp-harbor-49836.herokuapp.com/)
 Github repository for [Cache Food Decisions](https://github.com/VictorMendez96/cache-food-decisions)
 
 Contact the creators: [Victor Mendez](https://github.com/VictorMendez96), [Brisco Arechederra](https://github.com/brisco13), [Chris Williams](https://github.com/deftonechris), and [Anne Linger](https://github.com/amccorkl)

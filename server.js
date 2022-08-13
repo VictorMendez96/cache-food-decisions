@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //use the helper files in utils
-const hbs = exphbs.create({ helpers }); //helper object in the callback
+const hbs = exphbs.create({ helpers });
 
 const oneDay = 100 * 60 * 60 * 24;
 const sess = {
