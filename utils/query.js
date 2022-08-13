@@ -1,7 +1,7 @@
 require("dotenv").config();
 const e = require("express");
 const inputToQuery = require("./helpers");
-const parseIngredients = require("./helpers");
+const { parseIngredients, makeList } = require("./helpers");
 const axios = require("axios");
 const apiKey = process.env.API_KEY;
 
@@ -20,13 +20,19 @@ async function getChoices(user) {
 
 //store recipes in array? Loop through and tabulate cost, ingredients, amounts? Hand info to helper function to compile for shopping list
 // hand off array of recipe ID's.
-async function getRecipes(array) {
+async function getRecipes(user) {
   const recipes = [];
-  array.forEach((element) => {
+  const userRecipes = user.recipes.split("+");
+  console.log("Entered getRecipes");
+  userRecipes.forEach((element) => {
     //the recipe may be more than one serving...
+    console.log(`loop number: ${element}`);
     let rec = getOneRecipe(element);
     recipes.push(rec);
   });
+  console.log("completed loop");
+  console.log("recipes");
+  console.log(recipes);
   return recipes;
 }
 
@@ -42,18 +48,17 @@ async function getOneRecipe(array) {
     prepTime: "",
     totalPrice: "",
   };
-  const url = `https://api.spoonacular.com/recipes/${array[element]}/information`;
-  const response = await fetch(url);
-  const data = await response.json();
-  tempObj[element].id = data[element].id;
-  tempObj[element].title = data[element].title;
-  tempObj[element].image = data[element].image;
-  tempObj[element].instructions = data[element].instructions;
-  tempObj[element].ingredients = parseIngredients(
-    data[element].extendedIngredients
-  );
-  tempObj[element].servings = data[element].servings;
-  tempObj[element].meal = data[element].dishTypes;
+  const url = `https://api.spoonacular.com/recipes/${array}/information?includeNutrition=false&apiKey=${apiKey}`;
+  const response = await axios.get(url);
+  const data = await response.data;
+  tempObj.id = data.id;
+  tempObj.title = data.title;
+  tempObj.image = data.image;
+  tempObj.instructions = data.instructions;
+  tempObj.ingredients = parseIngredients(data.extendedIngredients);
+  tempObj.servings = data.servings;
+  tempObj.meal = data.dishTypes;
+  tempObj.totalPrice = (data.pricePerServing * tempObj.servings) / 100;
   return tempObj;
 }
 

@@ -1,0 +1,33 @@
+<div>
+  <a href="/dashboard"><input
+      class="btn btn-primary"
+      type="submit"
+      value="Back to User Preferences"
+    /></a>
+
+  <a href="/recipes"><input
+      class="btn btn-primary"
+      type="submit"
+      id="postRecipe"
+      value="Take Me To Recipe Selection"
+    /></a>
+</div>
+
+{{#each recipes as |item|}}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary recipe"
+      id={{item.id}}
+      onclick="addToList(this.id)"
+    >
+      Add Recipe
+    </button>
+  </div>
+{{/each}}
+
+<script type="text/javascript" src="/javascript/recipe2.js"></script>
+<script type="module" src="/javascript/recipe.js"></script>
