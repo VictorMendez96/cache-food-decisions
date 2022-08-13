@@ -24,7 +24,6 @@ async function getRecipes(user) {
       return await getOneRecipe(recipe);
     })
   );
-
   return recipes;
 }
 

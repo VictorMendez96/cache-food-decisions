@@ -73,6 +73,7 @@ router.get("/shoppingList", withAuth, async (req, res) => {
     console.log("list");
     console.log(list);
 
+
     res.render("final", {
       recipes,
       list,
