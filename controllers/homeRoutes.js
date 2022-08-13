@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
-const { getChoices } = require("../utils/query");
+const { makeList } = require("../utils/helpers");
+const { getRecipes, getChoices } = require("../utils/query");
 
 // prevent non logged in users from viewing the dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
@@ -60,20 +61,16 @@ router.get("/recipes", withAuth, async (req, res) => {
 
 router.get("/shoppingList", withAuth, async (req, res) => {
   try {
-    //find the user based on email.
+    //find the user based on email
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },
+      where: { id: req.session.user_id },
     });
+    //get
+    let recipes = await getRecipes(userData[0].dataValues);
+    // let list = await makeList(recipes);
 
-    //serialize the data
-    const users = userData.map((user) => user.get({ plain: true }));
-    console.log("users");
-    console.log(users);
-    console.log("userData");
-    console.log(userData);
-    // Pass the logged in flag to the template
-    res.render("recipe", {
-      users,
+    res.render("final", {
       recipes,
       logged_in: req.session.logged_in,
     });
