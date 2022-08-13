@@ -10,6 +10,3 @@ function addToList(id) {
   }
   console.log(recipeArray);
 }
-function test() {
-  console.log("called");
-}
