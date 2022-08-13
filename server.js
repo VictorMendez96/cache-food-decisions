@@ -11,6 +11,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 //use the helper files in utils
 const hbs = exphbs.create({ helpers });
 
@@ -18,6 +19,7 @@ const oneDay = 100 * 60 * 60 * 24;
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: { maxAge: oneDay },
+
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
