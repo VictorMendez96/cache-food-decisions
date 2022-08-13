@@ -3,7 +3,6 @@ const { User } = require("../models");
 const withAuth = require("../utils/auth");
 const { getChoices } = require("../utils/query");
 
-
 // prevent non logged in users from viewing the dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
