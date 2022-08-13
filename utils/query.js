@@ -12,7 +12,7 @@ async function getChoices(user) {
   const user_cuisines = user.cuisines;
   const user_diet = user.diet;
   const user_intolerances = user.intolerances;
-  const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${user_cuisines}&diet=${user_diet}&intolerances=${user_intolerances}&number=10&instructionsRequired=true&apiKey=${apiKey}`;
+  const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${user_cuisines}&diet=${user_diet}&intolerances=${user_intolerances}&number=12&instructionsRequired=true&apiKey=${apiKey}`;
   console.log(url);
   const response = await axios.get(url);
   return response.data.results;

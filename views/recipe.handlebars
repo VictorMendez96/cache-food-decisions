@@ -1,4 +1,26 @@
-<div>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+{{#each recipes as |item|}}
+<div class="col">
+  <div class="card">
+    <img src="{{item.image}}" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">{{item.title}}</h5>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary recipe"
+      id={{item.id}}
+      onclick="addToList(this.id)"
+    >
+      Add Recipe
+    </button>
+  </div>
+  </div>
+{{/each}}
+</div>
+
+<nav class="navbar fixed-bottom" id="recipe-buttons">
+<div class="container-fluid">
   <a href="/dashboard"><input
       class="btn btn-primary"
       type="submit"
@@ -19,23 +41,7 @@
       value="Take Me To My Shopping List"
     /></button>
 </div>
-
-{{#each recipes as |item|}}
-  <div class="card" style="width: 18rem;">
-    <img src="{{item.image}}" class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title">{{item.title}}</h5>
-    </div>
-    <button
-      type="button"
-      class="btn btn-primary recipe"
-      id={{item.id}}
-      onclick="addToList(this.id)"
-    >
-      Add Recipe
-    </button>
-  </div>
-{{/each}}
+</nav>
 
 <script type="module" src="/javascript/recipe.js"></script>
 <script src="/javascript/recipe2.js"></script>
