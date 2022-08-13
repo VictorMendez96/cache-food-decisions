@@ -16,7 +16,7 @@ const hbs = exphbs.create({ helpers }); //helper object in the callback
 
 const oneDay = 100 * 60 * 60 * 24;
 const sess = {
-  secret: "the biggest secret of them all",
+  secret: process.env.SESSION_SECRET,
   cookie: { maxAge: oneDay },
   resave: false,
   saveUninitialized: true,
