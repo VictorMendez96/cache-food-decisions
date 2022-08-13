@@ -1,3 +1,20 @@
+<nav class="navbar" id="recipe-buttons">
+<div class="container-fluid">
+  <a href="/dashboard"><input
+      class="btn btn-primary"
+      type="submit"
+      value="Back to User Preferences"
+    /></a>
+
+  <a href="/shoppingList"><input
+      class="btn btn-primary"
+      type="submit"
+      id="postRecipe"
+      value="Take Me To My Shopping List"
+    /></a>
+</div>
+</nav>
+
 <div class="row row-cols-1 row-cols-md-4 g-4">
 {{#each recipes as |item|}}
 <div class="col">
@@ -19,22 +36,7 @@
 {{/each}}
 </div>
 
-<nav class="navbar fixed-bottom" id="recipe-buttons">
-<div class="container-fluid">
-  <a href="/dashboard"><input
-      class="btn btn-primary"
-      type="submit"
-      value="Back to User Preferences"
-    /></a>
 
-  <a href="/shoppingList"><input
-      class="btn btn-primary"
-      type="submit"
-      id="postRecipe"
-      value="Take Me To My Shopping List"
-    /></a>
-</div>
-</nav>
 
 <script type="text/javascript" src="/javascript/recipe2.js"></script>
 <script type="module" src="/javascript/recipe.js"></script>
