@@ -14,27 +14,28 @@
 </div>
 
 {{#each recipes as |item|}}
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 75rem;">
     <div class="card-body">
       <h5 class="card-title">{{item.title}}</h5>
+      {{{item.instructions}}}
     </div>
-    <button
+    {{!-- <button
       type="button"
       class="btn btn-primary recipe"
       id={{item.id}}
       onclick="addToList(this.id)"
     >
       Add Recipe
-    </button>
+    </button> --}}
   </div>
 {{/each}}
 
-{{#each list as |item|}}
-  <div class="card" style="width: 18rem;">
-    <p>{{item.name}} - {{item.amount}} {{item.unit}}</p>
-
-  </div>
-{{/each}}
+<div class="card" style="width: 75rem;">
+  <h5>Shopping List</h5>
+  {{#each list as |item|}}
+    <p style="text-center">{{item.name}} - {{item.amount}} {{item.unit}}</p>
+  {{/each}}
+</div>
 
 <script type="text/javascript" src="/javascript/recipe2.js"></script>
 <script type="module" src="/javascript/recipe.js"></script>
