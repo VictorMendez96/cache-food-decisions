@@ -41,30 +41,45 @@ function makeList(recipeArray) {
   console.log("metaList");
   console.log(metaList);
   //step 2
-  metaList.forEach((ingList) => {
-    const placeholder = {
-      id: "",
-      name: "",
-      amount: "",
-      unit: "",
-    };
+  metaList.map(async (ingList) => {
+    // const placeholder = {
+    //   id: "",
+    //   name: "",
+    //   amount: "",
+    //   unit: "",
+    // };
     console.log("ingList");
     console.log(ingList);
     //step 3
     ingList.forEach((item) => {
+      const placeholder = {
+        id: "",
+        name: "",
+        amount: "",
+        unit: "",
+      };
       console.log("item");
       console.log(item);
       let id = item.id;
       //existing item
-      if (tempIDList.inclues(id)) {
+      if (tempIDList.includes(id)) {
         let index = tempIDList.indexOf(id);
-        list[index].amount += item.amount;
+        if (typeof item.amount == "number") {
+          list[index].amount += item.amount;
+        } else {
+          list[index].amount += 1;
+        }
         //assumes same unit
         //new item
       } else {
         placeholder.id = item.id;
         placeholder.name = item.name;
-        placeholder.amount = item.unit;
+        if (typeof item.amount == "number") {
+          placeholder.amount += parseInt(item.amount);
+        } else {
+          placeholder.amount += 1;
+        }
+        //placeholder.amount = item.amount;
         placeholder.unit = item.unit;
         tempIDList.push(placeholder.id);
         list.push(placeholder);

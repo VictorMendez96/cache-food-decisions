@@ -68,10 +68,14 @@ router.get("/shoppingList", withAuth, async (req, res) => {
     });
     //get
     let recipes = await getRecipes(userData[0].dataValues);
-    // let list = await makeList(recipes);
+    let list = await makeList(recipes);
+
+    console.log("list");
+    console.log(list);
 
     res.render("final", {
       recipes,
+      list,
       logged_in: req.session.logged_in,
     });
   } catch (error) {
