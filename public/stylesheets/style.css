@@ -59,3 +59,14 @@ body {
 .recnew {
   margin: 4px;
 }
+
+.card {
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  flex: 0 0 100%;
+}
+
+.col {
+  flex: 0 0 33.333%;
+  display: flex;
+  padding: 10px; /* gutter width */
+}
