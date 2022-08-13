@@ -5,17 +5,16 @@
       value="Back to User Preferences"
     /></a>
 
-  <a href="/shoppingList"><input
+  <a href="/recipes"><input
       class="btn btn-primary"
       type="submit"
       id="postRecipe"
-      value="Take Me To My Shopping List"
+      value="Take Me To Recipe Selection"
     /></a>
 </div>
 
 {{#each recipes as |item|}}
   <div class="card" style="width: 18rem;">
-    <img src="{{item.image}}" class="card-img-top" />
     <div class="card-body">
       <h5 class="card-title">{{item.title}}</h5>
     </div>

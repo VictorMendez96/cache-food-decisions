@@ -18,11 +18,11 @@ function parseIngredients(array) {
       unit: "",
       original: "",
     };
-    tempIng.name = array[element].name;
-    tempIng.id = array[element].id;
-    tempIng.amount = parseInt(array[element].amount);
-    tempIng.unit = array[element].unit;
-    tempIng.original = array[element].original;
+    tempIng.name = element.nameClean;
+    tempIng.id = element.id;
+    tempIng.amount = element.amount;
+    tempIng.unit = element.unit;
+    tempIng.original = element.original;
     output.push(tempIng);
   });
   return output;
@@ -32,10 +32,14 @@ function makeList(recipeArray) {
   let list = [];
   let metaList = [];
   let tempIDList = [];
+  console.log("recipeArray");
+  console.log(recipeArray);
   //step 1
-  recipeArray.forEach((element) => {
-    metaList[element] = recipeArray[element].ingredients;
-  });
+  for (let i = 0; i < recipeArray.length; i++) {
+    metaList[i] = recipeArray[i].ingredients;
+  }
+  console.log("metaList");
+  console.log(metaList);
   //step 2
   metaList.forEach((ingList) => {
     const placeholder = {
@@ -44,20 +48,24 @@ function makeList(recipeArray) {
       amount: "",
       unit: "",
     };
+    console.log("ingList");
+    console.log(ingList);
     //step 3
     ingList.forEach((item) => {
-      let id = ingList[item].id;
+      console.log("item");
+      console.log(item);
+      let id = item.id;
       //existing item
       if (tempIDList.inclues(id)) {
         let index = tempIDList.indexOf(id);
-        list[index].amount += ingList[item].amount;
+        list[index].amount += item.amount;
         //assumes same unit
         //new item
       } else {
-        placeholder.id = ingList[item].id;
-        placeholder.name = ingList[item].name;
-        placeholder.amount = ingList[item].unit;
-        placeholder.unit = ingList[item].unit;
+        placeholder.id = item.id;
+        placeholder.name = item.name;
+        placeholder.amount = item.unit;
+        placeholder.unit = item.unit;
         tempIDList.push(placeholder.id);
         list.push(placeholder);
       }
@@ -65,8 +73,6 @@ function makeList(recipeArray) {
   });
   return list;
 }
-
-
 
 function getPriceEstimate(recipeList) {
   const estimate = 0;
@@ -78,7 +84,6 @@ function getPriceEstimate(recipeList) {
 
 function addToList(id) {}
 function functionName(text) {}
-
 
 module.exports = {
   inputToQuery,

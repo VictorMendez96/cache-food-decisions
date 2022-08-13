@@ -1,7 +1,25 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+router.get("/", async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id);
+    if (!userData) {
+      res.status(404).json({ message: "No user with that id!" });
+      return;
+    }
 
+    let new_user = {
+      intolerances: userData.intolerances,
+      cuisines: userData.cuisines,
+      diet: userData.diet,
+    };
+
+    res.status(200).json(new_user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 //create a new user
 router.post("/signup", async (req, res) => {
   try {
@@ -38,26 +56,27 @@ router.post("/login", async (req, res) => {
       where: { email: req.body.email },
     });
     console.log(userData);
-    
+
     if (!userData) {
       res
-      .status(400)
-      .json({ message: "Incorrect email or password, please try again." });
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again." });
       return;
     }
     //verify the password
     const validPassword = await userData.checkPassword(req.body.password);
-    
+
     if (!validPassword) {
       res
-      .status(400)
-      .json({ message: "Incorrect email or password, please try again." });
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again." });
       return;
     }
     //creating session variables based on user
     req.session.save(() => {
-      // req.session.user_id = userData.id;
-      // req.session.username = userData.firstName;
+      req.session.user_id = userData.id;
+      req.session.username = userData.firstName;
+      req.session.email = req.body.email;
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You are now logged in!" });
@@ -79,38 +98,22 @@ router.post("/logout", (req, res) => {
   }
 });
 
-
 //update user preferences
-router.put("/userPrefs", (req, res) => {
-  User.update(
-    {
-      intolerances: req.body.intolerances,
-      cuisines: req.body.cuisines,
-      diet: req.body.diet,
-    },
-    {
-      where: { user_id: req.session.user_id },
+router.put("/userPrefs", async (req, res) => {
+  // update a category by its `id` value
+  try {
+    const userData = await User.update(req.body, {
+      where: { id: req.session.user_id },
+    });
+    if (!userData) {
+      res.status(404).json({ message: "No user with that id!" });
+      return;
     }
-    );
-  });
 
-  router.get("/shoppingList", async (req, res) => {
-    try {
-     const userData = await User.findOne({
-       where: { email: req.body.email },
-     });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-      const user = userData.get({ plain: true });
-
-      res.render("email", {
-        ...user,
-        logged_in: req.session.logged_in,
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
-  
-  module.exports = router;
-  
+module.exports = router;
