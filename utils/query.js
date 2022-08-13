@@ -7,13 +7,10 @@ const apiKey = process.env.API_KEY;
 
 //pass in the user object - variables will be queried. Offset will be a stored page variable
 async function getChoices(user) {
-  console.log("getChoices");
-  console.log(user);
   const user_cuisines = user.cuisines;
   const user_diet = user.diet;
   const user_intolerances = user.intolerances;
   const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${user_cuisines}&diet=${user_diet}&intolerances=${user_intolerances}&number=12&instructionsRequired=true&apiKey=${apiKey}`;
-  console.log(url);
   const response = await axios.get(url);
   return response.data.results;
 }
@@ -21,16 +18,12 @@ async function getChoices(user) {
 //store recipes in array? Loop through and tabulate cost, ingredients, amounts? Hand info to helper function to compile for shopping list
 // hand off array of recipe ID's.
 async function getRecipes(user) {
-  const userRecipes = user.recipes.split('+');
-  console.log('Entered getRecipes');
-  const recipes = Promise.all(
+  const userRecipes = user.recipes.split("+");
+  let recipes = await Promise.all(
     userRecipes.map(async (recipe) => {
-      await getOneRecipe(recipe);
+      return await getOneRecipe(recipe);
     })
   );
-  console.log('completed loop');
-  console.log('recipes');
-  console.log(recipes);
   return recipes;
 }
 
@@ -60,7 +53,15 @@ async function getOneRecipe(array) {
   return tempObj;
 }
 
+function test(recipe) {
+  return recipe;
+}
+
 module.exports = {
   getChoices,
   getRecipes,
 };
+
+// userRecipes.map(async (recipe) => {
+//   await getOneRecipe(recipe);
+// });
