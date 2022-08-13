@@ -67,7 +67,8 @@ router.get("/shoppingList", withAuth, async (req, res) => {
       where: { id: req.session.user_id },
     });
     //get
-    let recipes = await getRecipes(userData[0].dataValues);
+    let recipes = null;
+    // await getRecipes(userData[0].dataValues);
     // let list = await makeList(recipes);
 
     res.render("final", {
