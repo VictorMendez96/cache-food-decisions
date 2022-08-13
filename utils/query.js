@@ -21,17 +21,15 @@ async function getChoices(user) {
 //store recipes in array? Loop through and tabulate cost, ingredients, amounts? Hand info to helper function to compile for shopping list
 // hand off array of recipe ID's.
 async function getRecipes(user) {
-  const recipes = [];
-  const userRecipes = user.recipes.split("+");
-  console.log("Entered getRecipes");
-  userRecipes.forEach((element) => {
-    //the recipe may be more than one serving...
-    console.log(`loop number: ${element}`);
-    let rec = getOneRecipe(element);
-    recipes.push(rec);
-  });
-  console.log("completed loop");
-  console.log("recipes");
+  const userRecipes = user.recipes.split('+');
+  console.log('Entered getRecipes');
+  const recipes = Promise.all(
+    userRecipes.map(async (recipe) => {
+      await getOneRecipe(recipe);
+    })
+  );
+  console.log('completed loop');
+  console.log('recipes');
   console.log(recipes);
   return recipes;
 }
