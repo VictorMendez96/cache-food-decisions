@@ -41,4 +41,6 @@ const putRecipes = async (event) => {
   console.log(`res: ${res}`);
 };
 
-document.getElementById("postRecipe").addEventListener("click", putRecipes);
+document
+  .querySelectorAll(".recipe")
+  .forEach((ele) => ele.addEventListener("click", putRecipes));

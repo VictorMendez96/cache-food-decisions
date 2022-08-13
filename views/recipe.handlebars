@@ -16,27 +16,45 @@
 </nav>
 
 <div class="row row-cols-1 row-cols-md-4 g-4">
-{{#each recipes as |item|}}
-<div class="col">
-  <div class="card">
-    <img src="{{item.image}}" class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title">{{item.title}}</h5>
+  {{#each recipes as |item|}}
+    <div class="col">
+      <div class="card">
+        <img src="{{item.image}}" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary recipe"
+          id={{item.id}}
+          onclick="addToList(this.id)"
+        >
+          Add Recipe
+        </button>
+      </div>
     </div>
-    <button
-      type="button"
-      class="btn btn-primary recipe"
-      id={{item.id}}
-      onclick="addToList(this.id)"
-    >
-      Add Recipe
-    </button>
-  </div>
-  </div>
-{{/each}}
+  {{/each}}
 </div>
 
+<<<<<<< HEAD
+<nav class="navbar fixed-bottom" id="recipe-buttons">
+  <div class="container-fluid">
+    <a href="/dashboard"><input
+        class="btn btn-primary"
+        type="submit"
+        value="Back to User Preferences"
+      /></a>
 
+    <a href="/shoppingList"><input
+        class="btn btn-primary"
+        type="submit"
+        value="Take Me To My Shopping List"
+      /></a>
+  </div>
+</nav>
+=======
+
+>>>>>>> 63461978f55a58a91bd852f45c4ce394e794262b
 
 <script type="text/javascript" src="/javascript/recipe2.js"></script>
 <script type="module" src="/javascript/recipe.js"></script>
