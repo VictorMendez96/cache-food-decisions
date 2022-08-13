@@ -31,5 +31,12 @@
   </div>
 {{/each}}
 
+{{#each list as |item|}}
+  <div class="card" style="width: 18rem;">
+    <p>{{item.name}} - {{item.amount}} {{item.unit}}</p>
+
+  </div>
+{{/each}}
+
 <script type="text/javascript" src="/javascript/recipe2.js"></script>
 <script type="module" src="/javascript/recipe.js"></script>

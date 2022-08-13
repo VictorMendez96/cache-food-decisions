@@ -1,25 +1,25 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-router.get("/", async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.session.user_id);
-    if (!userData) {
-      res.status(404).json({ message: "No user with that id!" });
-      return;
-    }
+// router.get("/", async (req, res) => {
+//   try {
+//     const userData = await User.findByPk(req.session.user_id);
+//     if (!userData) {
+//       res.status(404).json({ message: "No user with that id!" });
+//       return;
+//     }
 
-    let new_user = {
-      intolerances: userData.intolerances,
-      cuisines: userData.cuisines,
-      diet: userData.diet,
-    };
+//     let new_user = {
+//       intolerances: userData.intolerances,
+//       cuisines: userData.cuisines,
+//       diet: userData.diet,
+//     };
 
-    res.status(200).json(new_user);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(new_user);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 //create a new user
 router.post("/signup", async (req, res) => {
   try {
@@ -29,7 +29,7 @@ router.post("/signup", async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
     });
-    
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.email = userData.email;
